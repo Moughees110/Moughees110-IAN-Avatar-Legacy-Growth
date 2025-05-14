@@ -34,8 +34,12 @@ exports.login = async (req, res) => {
   try {
     const user = await signInWithEmailAndPassword(auth, email, password);
     res.status(200).json({ message: "Login successful", user: user.user });
+    console.log("login successfully");
+    
   } catch (err) {
     res.status(400).json({ error: err.message });
+    console.log("some error occur");
+    
   }
 };
 
