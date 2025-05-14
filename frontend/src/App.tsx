@@ -1,9 +1,9 @@
 // src/App.js
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AuthRoutes from './apps/auth/routes/authRoutesgigit';
-import DashboardRoutes from './apps/dashboard/routes/dashboardRoutes';
-import WebRoutes from './apps/web/routes/webRoutes';
+import AuthRoutes from './apps/auth/routes/auth-routes.js';
+import DashboardRoutes from './apps/dashboard/routes/dashboard-routes.js';
+import WebRoutes from './apps/web/routes/web-routes.js';
 
 const App = () => {
   return (
