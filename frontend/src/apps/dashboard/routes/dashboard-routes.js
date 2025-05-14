@@ -10,6 +10,7 @@ const DashboardRoutes = () => {
       <Route path="/" element={<DashboardLayout />}>
         <Route path="home" element={<DashboardHome />} />
         {/* Add more dashboard-related pages here */}
+        {/* Add more dashboard-related pages here */}
       </Route>
     </Routes>
   );
