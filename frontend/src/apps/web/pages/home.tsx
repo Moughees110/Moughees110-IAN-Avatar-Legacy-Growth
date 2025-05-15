@@ -1,7 +1,9 @@
-import Benefit from '../components/Benefit'
-import Features from '../components/features'
-import Hero from '../components/hero'
-import About from './about'
+import Benefit from "../components/Benefit";
+import Features from "../components/features";
+import Hero from "../components/hero";
+import Process from "../components/process";
+import SuccessStories from "../components/success-stories";
+import About from "./about";
 
 export default function Home() {
   return (
@@ -9,7 +11,9 @@ export default function Home() {
       <Hero />
       <About />
       <Features />
-      <Benefit/>
+      <Benefit />
+      <Process />
+      <SuccessStories />
     </>
-  )
+  );
 }
