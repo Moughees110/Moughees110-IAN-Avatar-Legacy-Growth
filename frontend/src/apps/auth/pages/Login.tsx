@@ -20,13 +20,12 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-// ✅ Schema
+// Schema
 const FormSchema = z.object({
   email: z.string().email("Please enter a valid email"),
   password: z.string().min(6, "Password must be at least 6 characters"),
 });
 
-// ✅ API call
 const loginUser = async (data: z.infer<typeof FormSchema>) => {
   const res = await fetch("http://localhost:5000/api/auth/login", {
     method: "POST",
@@ -70,10 +69,12 @@ export default function Login() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50">
-      <Card className="w-full max-w-sm p-6">
-        <CardContent>
-          <h2 className="mb-6 text-center text-2xl font-semibold">Sign In</h2>
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#0f0f0f] to-[#1a1a2e] text-white">
+      <Card className="w-full max-w-sm bg-[#16161a] border border-[#2a2a2a] shadow-xl rounded-2xl">
+        <CardContent className="p-6">
+          <h2 className="mb-6 text-center text-2xl font-semibold text-white">
+            Sign In
+          </h2>
 
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -82,9 +83,12 @@ export default function Login() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel className="text-sm text-gray-300">
+                      Email
+                    </FormLabel>
                     <FormControl>
                       <Input
+                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
                         type="email"
                         placeholder="you@example.com"
                         {...field}
@@ -100,9 +104,12 @@ export default function Login() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel className="text-sm text-gray-300">
+                      Password
+                    </FormLabel>
                     <FormControl>
                       <Input
+                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
                         type="password"
                         placeholder="••••••••"
                         {...field}
@@ -120,21 +127,24 @@ export default function Login() {
               <div className="text-right text-sm">
                 <Link
                   to="/auth/ForgetPassword"
-                  className="text-blue-500 hover:underline"
+                  className="text-purple-400 hover:underline"
                 >
                   Forgot password?
                 </Link>
               </div>
 
-              <Button type="submit" className="w-full">
+              <Button
+                type="submit"
+                className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+              >
                 Sign In
               </Button>
             </form>
           </Form>
 
-          <p className="mt-4 text-center text-sm">
+          <p className="mt-4 text-center text-sm text-gray-400">
             Don’t have an account?{" "}
-            <Link to="/auth/signup" className="text-blue-500 hover:underline">
+            <Link to="/auth/signup" className="text-purple-400 hover:underline">
               Sign up now
             </Link>
           </p>

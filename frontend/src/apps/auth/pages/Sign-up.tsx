@@ -1,3 +1,5 @@
+
+
 "use client";
 
 import { useForm } from "react-hook-form";
@@ -84,10 +86,10 @@ export default function SignUp() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50">
-      <Card className="w-full max-w-sm p-6">
-        <CardContent>
-          <h2 className="mb-6 text-center text-2xl font-semibold">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#0f0f0f] to-[#1a1a2e] text-white">
+      <Card className="w-full max-w-sm bg-[#16161a] border border-[#2a2a2a] shadow-xl rounded-2xl">
+        <CardContent className="p-6">
+          <h2 className="mb-6 text-center text-2xl font-semibold text-white">
             Create Account
           </h2>
 
@@ -98,9 +100,15 @@ export default function SignUp() {
                 name="firstName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>First Name</FormLabel>
+                    <FormLabel className="text-sm text-gray-300">
+                      First Name
+                    </FormLabel>
                     <FormControl>
-                      <Input placeholder="John" {...field} />
+                      <Input
+                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
+                        placeholder="John"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -112,9 +120,15 @@ export default function SignUp() {
                 name="lastName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Last Name</FormLabel>
+                    <FormLabel className="text-sm text-gray-300">
+                      Last Name
+                    </FormLabel>
                     <FormControl>
-                      <Input placeholder="Doe" {...field} />
+                      <Input
+                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
+                        placeholder="Doe"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -126,9 +140,12 @@ export default function SignUp() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel className="text-sm text-gray-300">
+                      Email
+                    </FormLabel>
                     <FormControl>
                       <Input
+                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
                         type="email"
                         placeholder="you@example.com"
                         {...field}
@@ -144,9 +161,12 @@ export default function SignUp() {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel className="text-sm text-gray-300">
+                      Password
+                    </FormLabel>
                     <FormControl>
                       <Input
+                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
                         type="password"
                         placeholder="••••••••"
                         {...field}
@@ -162,9 +182,12 @@ export default function SignUp() {
                 name="confirmPassword"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Confirm Password</FormLabel>
+                    <FormLabel className="text-sm text-gray-300">
+                      Confirm Password
+                    </FormLabel>
                     <FormControl>
                       <Input
+                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
                         type="password"
                         placeholder="••••••••"
                         {...field}
@@ -179,15 +202,18 @@ export default function SignUp() {
                 <p className="text-sm text-red-500 mt-1">{formError}</p>
               )}
 
-              <Button type="submit" className="w-full">
+              <Button
+                type="submit"
+                className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+              >
                 Sign Up
               </Button>
             </form>
           </Form>
 
-          <p className="mt-4 text-center text-sm">
+          <p className="mt-4 text-center text-sm text-gray-400">
             Already have an account?{" "}
-            <Link to="/auth/login" className="text-blue-500 hover:underline">
+            <Link to="/auth/login" className="text-purple-400 hover:underline">
               Sign in
             </Link>
           </p>

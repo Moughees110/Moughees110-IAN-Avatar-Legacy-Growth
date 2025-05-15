@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Form,
@@ -56,7 +55,7 @@ export default function ForgetPassword() {
 
   const mutation = useMutation({
     mutationFn: sendResetLink,
-    onSuccess: (res) => {
+    onSuccess: () => {
       form.reset();
       setSuccessMessage("Reset link sent to your email.");
     },
@@ -72,10 +71,10 @@ export default function ForgetPassword() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50">
-      <Card className="w-full max-w-sm p-6">
-        <CardContent>
-          <h2 className="mb-6 text-center text-2xl font-semibold">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-[#0f0f0f] to-[#1a1a2e] text-white">
+      <Card className="w-full max-w-sm bg-[#16161a] border border-[#2a2a2a] shadow-xl rounded-2xl">
+        <CardContent className="p-6">
+          <h2 className="mb-6 text-center text-2xl font-semibold text-white">
             Forgot Password
           </h2>
 
@@ -86,9 +85,15 @@ export default function ForgetPassword() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email Address</FormLabel>
+                    <FormLabel className="text-sm text-gray-300">
+                      Email Address
+                    </FormLabel>
                     <FormControl>
-                      <Input placeholder="you@example.com" {...field} />
+                      <Input
+                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
+                        placeholder="you@example.com"
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -99,18 +104,21 @@ export default function ForgetPassword() {
                 <p className="text-sm text-red-500 mt-1">{formError}</p>
               )}
               {successMessage && (
-                <p className="text-sm text-green-600 mt-1">{successMessage}</p>
+                <p className="text-sm text-green-500 mt-1">{successMessage}</p>
               )}
 
-              <Button type="submit" className="w-full">
+              <Button
+                type="submit"
+                className="w-full bg-purple-600 hover:bg-purple-700 text-white"
+              >
                 Send Reset Link
               </Button>
             </form>
           </Form>
 
-          <p className="mt-4 text-center text-sm">
+          <p className="mt-4 text-center text-sm text-gray-400">
             Remember your password?{" "}
-            <Link to="/auth/login" className="text-blue-500 hover:underline">
+            <Link to="/auth/login" className="text-purple-400 hover:underline">
               Go back to login
             </Link>
           </p>
