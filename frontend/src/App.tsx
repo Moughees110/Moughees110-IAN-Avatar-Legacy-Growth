@@ -1,20 +1,20 @@
-// src/App.js
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AuthRoutes from './apps/auth/routes/auth-routes.js';
-import DashboardRoutes from './apps/dashboard/routes/dashboard-routes.js';
-import WebRoutes from './apps/web/routes/web-routes.js';
-
-const App = () => {
+import { Routes, Route } from 'react-router-dom';
+import WebRoutes from './apps/web/routes/web-routes';
+import AuthRoutes from './apps/auth/routes/auth-routes';
+import DashboardRoutes from './apps/dashboard/routes/dashboard-routes';
+function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/auth/*" element={<AuthRoutes />} />
-        <Route path="/dashboard/*" element={<DashboardRoutes />} />
-        <Route path="/*" element={<WebRoutes />} />
-      </Routes>
-    </Router>
+    <Routes>
+      {/* Web routes ("/", "/home", "/about") */}
+      <Route path="/*" element={<WebRoutes />} />
+
+      {/* Auth routes ("/auth/login", "/auth/signup") */}
+      <Route path="/auth/*" element={<AuthRoutes />} />
+
+      {/* Dashboard routes ("/dashboard/home") */}
+      <Route path="/dashboard/*" element={<DashboardRoutes />} />
+    </Routes>
   );
-};
+}
 
 export default App;
