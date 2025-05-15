@@ -1,13 +1,15 @@
-import Hero from '../components/hero'
+import Benefit from '../components/Benefit'
 import Features from '../components/features'
+import Hero from '../components/hero'
+import About from './about'
 
-function Home() {
+export default function Home() {
   return (
-   <>
-   <Hero/>
-   <Features/>
-   </>
+    <>
+      <Hero />
+      <About />
+      <Features />
+      <Benefit/>
+    </>
   )
 }
-
-export default Home
