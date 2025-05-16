@@ -1,10 +1,86 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { User2 } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 
+type CardType = {
+  id: number;
+  name: string;
+  designation: string;
+  content: React.ReactNode;
+};
+
+export function SuccessStories() {
+  return (
+    <div className="h-[48rem] flex items-center justify-center w-full bg-[#121212]">
+      <CardStack items={CARDS} />
+    </div>
+  );
+}
+
+const CardStack = ({
+  items,
+  offset = 12,
+  scaleFactor = 0.06,
+}: {
+  items: CardType[];
+  offset?: number;
+  scaleFactor?: number;
+}) => {
+  const [cards, setCards] = useState<CardType[]>(items);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCards((prevCards) => {
+        const newArray = [...prevCards];
+        newArray.unshift(newArray.pop()!);
+        return newArray;
+      });
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="w-full bg-[#0B0D11] text-white py-20 px-4 overflow-hidden">
+      <div className="max-w-7xl mx-auto text-center mb-16">
+        <div className="flex items-center justify-center gap-2 text-sm uppercase text-muted-foreground mb-2">
+          <User2 className="h-4 w-4" />
+          <span>Customer Success</span>
+        </div>
+        <h2 className="text-4xl font-bold">
+          Real Customer <span className="italic font-light">Results</span>
+        </h2>
+        <p className="text-muted-foreground mt-3">
+          How top brands used Landio AI to unlock growth.
+        </p>
+      </div>
+
+      <div className="flex justify-center">
+        <div className="relative w-[90vw] max-w-4xl h-[32rem]">
+          {cards.map((card, index) => (
+            <motion.div
+              key={card.id}
+              className="absolute w-full rounded-2xl p-1"
+              style={{
+                transformOrigin: "top center",
+              }}
+              animate={{
+                top: index * -offset,
+                scale: 1 - index * scaleFactor,
+                zIndex: cards.length - index,
+              }}
+            >
+              {card.content}
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Custom Card JSX + Data
 const cardData = [
   {
     id: 1,
@@ -38,101 +114,45 @@ const cardData = [
   },
 ];
 
-export default function SuccessStories() {
-  const [topCardIndex, setTopCardIndex] = useState(0);
-
-  // Auto-switch every 10 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTopCardIndex((prev) => (prev + 1) % cardData.length);
-    }, 10000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const getCardOrder = () => {
-    return [
-      cardData[topCardIndex],
-      cardData[(topCardIndex + 1) % cardData.length],
-      cardData[(topCardIndex + 2) % cardData.length],
-    ];
-  };
-
-  return (
-    <section className="w-full bg-[#0c0c0c] text-white py-20 px-4 overflow-hidden">
-      <div className="max-w-7xl mx-auto text-center mb-16">
-        <div className="flex items-center justify-center gap-2 text-sm uppercase text-muted-foreground mb-2">
-          <User2 className="h-4 w-4" />
-          <span>Customer Success</span>
+const CARDS: CardType[] = cardData.map((card) => ({
+  id: card.id,
+  name: card.title,
+  designation: "Customer Story",
+  content: (
+    <div className="bg-[#0B0D11] border border-[#2b2b2b] shadow-2xl rounded-2xl overflow-hidden hover:shadow-3xl transition-shadow duration-300 w-full">
+      <div className="flex items-center gap-2 px-6 pt-4">
+        <User2 className="w-4 h-4 text-muted-foreground text-gray-400" />
+        <span className="text-sm text-muted-foreground text-gray-400">
+          Customer Story
+        </span>
+      </div>
+      <div className="p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex-1">
+          <h3 className="text-2xl font-semibold mb-2 text-white">
+            {card.title}
+          </h3>
+          <p className="text-gray-400 text-base h-20 mb-6">
+            {card.description}
+          </p>
+          <div className="flex gap-4">
+            <div className="bg-[#0B0D11] rounded-xl px-6 py-4 text-center border border-[#2c2c2c]">
+              <p className="text-2xl font-bold text-white">{card.retention}</p>
+              <p className="text-sm text-gray-400">gain in retention</p>
+            </div>
+            <div className="bg-[#0B0D11] rounded-xl px-6 py-4 text-center border border-[#2c2c2c]">
+              <p className="text-2xl font-bold text-white">{card.profits}</p>
+              <p className="text-sm text-gray-400">surge in profits</p>
+            </div>
+          </div>
         </div>
-        <h2 className="text-4xl font-bold">
-          Real Customer <span className="italic font-light">Results</span>
-        </h2>
-        <p className="text-muted-foreground mt-3">
-          How top brands used Landio AI to unlock growth.
-        </p>
+        <div className="w-full md:w-1/3">
+          <img
+            src={card.image}
+            alt={card.title}
+            className="rounded-xl border border-[#1f1f1f] shadow-lg object-cover w-full h-auto"
+          />
+        </div>
       </div>
-
-      <div className="relative h-[600px] max-w-5xl mx-auto flex items-center justify-center">
-        {getCardOrder().map((card, position) => {
-          const zIndex = 50 - position;
-          const translateY = position * 20;
-          const scale = 1 - position * 0.03;
-          const isFront = position === 0;
-
-          return (
-            <motion.div
-              key={card.id}
-              className="absolute w-full md:w-[90%] cursor-pointer"
-              style={{ zIndex }}
-              animate={{ y: translateY, scale, opacity: 1 }}
-              transition={{ duration: 0.4 }}
-              onClick={() =>
-                setTopCardIndex(cardData.findIndex((c) => c.id === card.id))
-              }
-            >
-              <Card className="bg-[#121212] border border-[#2b2b2b] shadow-2xl rounded-2xl overflow-hidden hover:shadow-3xl transition-shadow duration-300">
-                <div className="flex items-center gap-2 px-6 pt-4">
-                  <User2 className="w-4 h-4 text-muted-foreground" />
-                  <span className="text-sm text-muted-foreground">
-                    Customer Story
-                  </span>
-                </div>
-                <CardContent className="p-6 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-semibold mb-2">
-                      {card.title}
-                    </h3>
-                    <p className="text-muted-foreground text-base mb-6">
-                      {card.description}
-                    </p>
-                    <div className="flex gap-4">
-                      <div className="bg-[#1e1e1e] rounded-xl px-6 py-4 text-center border border-[#2c2c2c]">
-                        <p className="text-2xl font-bold">{card.retention}</p>
-                        <p className="text-sm text-muted-foreground">
-                          gain in retention
-                        </p>
-                      </div>
-                      <div className="bg-[#1e1e1e] rounded-xl px-6 py-4 text-center border border-[#2c2c2c]">
-                        <p className="text-2xl font-bold">{card.profits}</p>
-                        <p className="text-sm text-muted-foreground">
-                          surge in profits
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-full md:w-1/3">
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      className="rounded-xl border border-[#1f1f1f] shadow-lg object-cover w-full h-auto"
-                    />
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          );
-        })}
-      </div>
-    </section>
-  );
-}
+    </div>
+  ),
+}));

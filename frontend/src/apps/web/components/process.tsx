@@ -39,7 +39,7 @@ export default function HowLandioWorks() {
   const current = tabData.find((tab) => tab.key === activeTab);
 
   return (
-    <section className="w-full bg-[#0c0c0c] text-white py-20 px-4">
+    <section className="w-full bg-[#0B0D11] text-white py-20 px-4">
       <div className="max-w-7xl mx-auto text-center mb-16">
         <div className="flex items-center justify-center gap-2 text-sm uppercase text-muted-foreground mb-2">
           <BadgeCheck className="h-4 w-4" />
@@ -54,7 +54,7 @@ export default function HowLandioWorks() {
         </p>
       </div>
 
-      <Card className="bg-[#121212] border border-[#1f1f1f] max-w-7xl mx-auto p-6 md:p-10">
+      <Card className="bg-[#0B0D11] border border-[#1f1f1f] max-w-7xl mx-auto p-6 md:p-10">
         {/* Tabs */}
         <Tabs defaultValue="step1" className="w-full">
           <TabsList className="grid grid-cols-3 gap-2 w-full bg-transparent mb-10">
@@ -63,7 +63,7 @@ export default function HowLandioWorks() {
                 key={tab.key}
                 value={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className="w-full bg-[#1a1a1a] text-white data-[state=active]:bg-[#2a2a2a] data-[state=active]:text-white border border-[#2c2c2c] rounded-md py-2 text-sm"
+                className="w-full bg-[#0B0D11] text-white data-[state=active]:bg-[#2a2a2a] data-[state=active]:text-white border border-[#2c2c2c] rounded-md py-2 text-sm"
               >
                 {tab.key.toUpperCase().replace("STEP", "STEP ")}
               </TabsTrigger>
@@ -83,7 +83,7 @@ export default function HowLandioWorks() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -30 }}
               transition={{ duration: 0.5 }}
-              className="rounded-xl border border-[#1f1f1f] shadow-xl"
+              className=""
             />
           </AnimatePresence>
 
