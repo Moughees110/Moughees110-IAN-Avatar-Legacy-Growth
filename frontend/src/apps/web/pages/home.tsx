@@ -14,6 +14,7 @@ import { OurTeam } from "./ourteam";
 import Comparison from '../components/comparison';
 import FAQsComponent from '../components/faqs';
 import Pricing from '../components/pricing';
+import ReachOutAnytime from '../components/reach-out-anytime';
 
 export default function Home() {
   return (
@@ -33,6 +34,7 @@ export default function Home() {
       <FAQsComponent />
       <Comparison />
       <OurTeam />
+      <ReachOutAnytime/>
     </>
   )
 }

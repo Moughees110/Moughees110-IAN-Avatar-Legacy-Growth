@@ -43,7 +43,7 @@ export default function About() {
       {/* Profile */}
       <div className="mt-10 flex flex-col items-center justify-center gap-4">
         <img
-          src="/website/raza (2).jpg"
+          src="/website/G1bC6MQnKLl8c7ZyjwpJlVGuw.avif"
           alt="Co-founder & ex Google designer"
           className="w-16 h-16 rounded-full object-cover"
         />
