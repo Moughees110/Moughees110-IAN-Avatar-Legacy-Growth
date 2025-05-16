@@ -16,7 +16,7 @@ export default function Navbar() {
         </div>
 
         {/* Center Nav Links */}
-        <nav className="hidden md:flex space-x-6 bg-[#0a0a0a] px-6 py-2 rounded-full border border-[#1a1a1a]">
+        <nav className="hidden md:flex space-x-6 bg-[#0B0D11] px-6 py-2 rounded-full border border-[#1a1a1a]">
           {navItems.map((item) => (
             <a
               key={item}
@@ -31,12 +31,12 @@ export default function Navbar() {
         {/* CTA Button */}
         <div className="hidden md:flex">
           <Link to="/auth/login">
-            <button className="flex items-center cursor-pointer gap-2 bg-[#121212] border border-[#1f1f1f] px-4 py-2 rounded-md hover:bg-[#1c1c1c] transition">
+            <button className="flex items-center cursor-pointer gap-2 bg-[#0B0D11] border border-[#1f1f1f] px-4 py-2 rounded-md hover:bg-[#1c1c1c] transition">
               <span className="text-sm font-semibold">Login</span>
             </button>
           </Link>
           <Link to="/auth/signup">
-            <button className="flex items-center cursor-pointer ml-2 gap-2 bg-[#121212] border border-[#1f1f1f] px-4 py-2 rounded-md hover:bg-[#1c1c1c] transition">
+            <button className="flex items-center cursor-pointer ml-2 gap-2 bg-[#0B0D11] border border-[#1f1f1f] px-4 py-2 rounded-md hover:bg-[#1c1c1c] transition">
               <span className="text-sm font-semibold">Sign Up</span>
             </button>
           </Link>
@@ -52,7 +52,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#0a0a0a] border-t border-[#1a1a1a] px-4 py-3 space-y-3">
+        <div className="md:hidden bg-[#0B0D11] border-t border-[#1a1a1a] px-4 py-3 space-y-3">
           {navItems.map((item) => (
             <a
               key={item}
@@ -63,14 +63,14 @@ export default function Navbar() {
               {item}
             </a>
           ))}
-          <button className="flex items-center cursor-pointer gap-2 bg-[#121212] border border-[#1f1f1f] px-4 py-2 rounded-md hover:bg-[#1c1c1c] transition w-full">
+          <button className="flex items-center cursor-pointer gap-2 bg-[#0B0D11] border border-[#1f1f1f] px-4 py-2 rounded-md hover:bg-[#1c1c1c] transition w-full">
             <span className="text-sm font-semibold">Login</span>
           </button>
-          <button className="flex items-center  cursor-pointer gap-2 bg-[#121212] border border-[#1f1f1f] px-4 py-2 rounded-md hover:bg-[#1c1c1c] transition w-full">
+          <button className="flex items-center  cursor-pointer gap-2 bg-[#0B0D11] border border-[#1f1f1f] px-4 py-2 rounded-md hover:bg-[#1c1c1c] transition w-full">
             <span className="text-sm font-semibold">Sign Up</span>
           </button>
         </div>
       )}
     </header>
-  );
+  )
 }

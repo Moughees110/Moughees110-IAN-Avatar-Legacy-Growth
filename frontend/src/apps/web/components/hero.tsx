@@ -1,11 +1,15 @@
 import {
-  ArrowUpRight,
+  // ArrowUpRight,
   ChevronDown,
   Dot,
   Facebook,
   Instagram,
   X as TwitterX,
 } from 'lucide-react'
+import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button'
+
+
+
 
 function Hero() {
   const scrollToNextSection = () => {
@@ -25,7 +29,10 @@ function Hero() {
           playsInline
           preload="auto"
         >
-          <source src="../../../../public/website/12920702-sd_640_360_30fps.mp4" type="video/mp4" />
+          <source
+            src="/website/12920702-sd_640_360_30fps.mp4"
+            type="video/mp4"
+          />
         </video>
         <div className="absolute inset-0 bg-black/60" />
       </div>
@@ -53,9 +60,9 @@ function Hero() {
             Transform Possibilities into Reality with Lio
           </p>
 
-          <button className="flex items-center gap-2 bg-transparent text-slate-200 border border-[#2a2a2a] px-6 py-3 rounded-md font-semibold hover:scale-105 transition-transform duration-300 mb-8">
-            Get Started <ArrowUpRight size={16} />
-          </button>
+          <div className="relative justify-center pb-6 text-black">
+            <InteractiveHoverButton>Get Started</InteractiveHoverButton>
+          </div>
 
           <div className="flex justify-center gap-6 mb-8">
             <TwitterX

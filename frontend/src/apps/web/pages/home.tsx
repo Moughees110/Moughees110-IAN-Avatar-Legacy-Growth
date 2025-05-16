@@ -1,8 +1,11 @@
 import Benefit from "../components/Benefit";
 import Features from "../components/features";
 import Hero from "../components/hero";
-import Process from "../components/process";
-import SuccessStories from "../components/success-stories";
+import Integrations from '../components/integrations';
+import Reviews from '../components/reviews';
+
+// import Process from "../components/process";
+// import SuccessStories from "../components/success-stories";
 import About from "./about";
 
 export default function Home() {
@@ -12,8 +15,10 @@ export default function Home() {
       <About />
       <Features />
       <Benefit />
-      <Process />
-      <SuccessStories />
+      <Integrations />
+      <Reviews/>
+      {/* <Process /> */}
+      {/* <SuccessStories /> */}
     </>
   );
 }
