@@ -2,8 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import WebLayout from "../layouts/web-layout";
 import Home from "../pages/home";
 import About from "../pages/about";
-import Login from "@/apps/auth/pages/Login";
-import SignUp from "@/apps/auth/pages/sign-up";
+import Login from "../../auth/pages/login";
+import SignUp from "../../auth/pages/Sign-up";
 
 const WebRoutes = () => {
   return (
