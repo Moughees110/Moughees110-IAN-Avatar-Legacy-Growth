@@ -72,7 +72,7 @@ export const OurTeam = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="w-full bg-[#0c0c0c] text-white py-20 px-4 overflow-hidden">
+    <section className="w-full bg-[#0B0D11] text-white py-20 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto text-center mb-16">
         <div className="flex items-center justify-center gap-2 text-sm uppercase text-muted-foreground mb-2 tracking-wide">
           <Biohazard className="w-4 h-4 text-muted-foreground text-gray-400" />
@@ -114,8 +114,8 @@ export const OurTeam = () => {
               )}
             </AnimatePresence>
 
-            <div className="rounded-2xl h-full w-full p-4 overflow-hidden bg-[#2c2c2c] border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20 transition">
-              <div className="rounded-2xl h-64 w-full p-6 overflow-hidden bg-[#1e1e1e] border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20 transition">
+            <div className="rounded-2xl h-full w-full p-4 overflow-hidden bg-[#021533] border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20 transition">
+              <div className="rounded-2xl h-64 w-full p-6 overflow-hidden bg-[#0B0D11] border border-transparent dark:border-white/[0.2] group-hover:border-slate-700 relative z-20 transition">
                 <div className="relative z-50 flex items-center h-full gap-6">
                   {/* Left side */}
                   <div className="flex flex-col justify-center h-full">

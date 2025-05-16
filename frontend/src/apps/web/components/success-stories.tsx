@@ -42,7 +42,7 @@ const CardStack = ({
   }, []);
 
   return (
-    <section className="w-full bg-[#0c0c0c] text-white py-20 px-4 overflow-hidden">
+    <section className="w-full bg-[#0B0D11] text-white py-20 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto text-center mb-16">
         <div className="flex items-center justify-center gap-2 text-sm uppercase text-muted-foreground mb-2">
           <User2 className="h-4 w-4" />
@@ -119,7 +119,7 @@ const CARDS: CardType[] = cardData.map((card) => ({
   name: card.title,
   designation: "Customer Story",
   content: (
-    <div className="bg-[#121212] border border-[#2b2b2b] shadow-2xl rounded-2xl overflow-hidden hover:shadow-3xl transition-shadow duration-300 w-full">
+    <div className="bg-[#0B0D11] border border-[#2b2b2b] shadow-2xl rounded-2xl overflow-hidden hover:shadow-3xl transition-shadow duration-300 w-full">
       <div className="flex items-center gap-2 px-6 pt-4">
         <User2 className="w-4 h-4 text-muted-foreground text-gray-400" />
         <span className="text-sm text-muted-foreground text-gray-400">
@@ -135,11 +135,11 @@ const CARDS: CardType[] = cardData.map((card) => ({
             {card.description}
           </p>
           <div className="flex gap-4">
-            <div className="bg-[#1e1e1e] rounded-xl px-6 py-4 text-center border border-[#2c2c2c]">
+            <div className="bg-[#0B0D11] rounded-xl px-6 py-4 text-center border border-[#2c2c2c]">
               <p className="text-2xl font-bold text-white">{card.retention}</p>
               <p className="text-sm text-gray-400">gain in retention</p>
             </div>
-            <div className="bg-[#1e1e1e] rounded-xl px-6 py-4 text-center border border-[#2c2c2c]">
+            <div className="bg-[#0B0D11] rounded-xl px-6 py-4 text-center border border-[#2c2c2c]">
               <p className="text-2xl font-bold text-white">{card.profits}</p>
               <p className="text-sm text-gray-400">surge in profits</p>
             </div>
