@@ -39,7 +39,7 @@ export default function HowLandioWorks() {
   const current = tabData.find((tab) => tab.key === activeTab);
 
   return (
-    <section className="w-full bg-[#0B0D11] text-white py-20 px-4">
+    <section className="w-full bg-[#0B0D11] text-white py-20 px-4" id="process">
       <div className="max-w-7xl mx-auto text-center mb-16">
         <div className="flex items-center justify-center gap-2 text-sm uppercase text-muted-foreground mb-2">
           <BadgeCheck className="h-4 w-4" />

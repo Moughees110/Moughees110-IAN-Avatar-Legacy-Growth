@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from "react";
 import {
   Menu,
   X,
@@ -6,29 +6,34 @@ import {
   Settings,
   BadgeDollarSign,
   Mail,
-  Bell,
+  Heart,
   LogIn,
   UserPlus,
-} from 'lucide-react'
-import { Link } from 'react-router-dom'
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const navItems = [
-  { id:"features", label: 'Features', icon: <Box size={16} /> },
-  {id:"process", label: 'Process', icon: <Settings size={16} /> },
-  {id:"pricing", label: 'Pricing', icon: <BadgeDollarSign size={16} /> },
-  {id:"contact", label: 'Contact', icon: <Mail size={16} /> },
-  {id:"update", label: 'Updates', icon: <Bell size={16} /> },
-]
+  { id: "features", label: "Features", icon: <Box size={16} /> },
+  { id: "process", label: "Process", icon: <Settings size={16} /> },
+  { id: "pricing", label: "Pricing", icon: <BadgeDollarSign size={16} /> },
+  { id: "contact", label: "Contact", icon: <Mail size={16} /> },
+  { id: "reviews", label: "Reviews", icon: <Heart size={16} /> },
+];
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="bg-[#0B0D11] text-white border-b border-[#1a1a1a] fixed top-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <span className="text-xl italic font-medium">Landio</span>
+          <a
+            href="#hero"
+            className="text-xl italic font-medium hover:opacity-80 transition"
+          >
+            Landio
+          </a>
         </div>
 
         {/* Center Nav Links */}
@@ -41,7 +46,6 @@ export default function Navbar() {
             >
               {item.icon}
               {item.label}
-
             </a>
           ))}
         </nav>
@@ -99,5 +103,5 @@ export default function Navbar() {
         </div>
       )}
     </header>
-  )
+  );
 }

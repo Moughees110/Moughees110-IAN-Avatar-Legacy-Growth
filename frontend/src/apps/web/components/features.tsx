@@ -1,10 +1,12 @@
-
-import { motion } from 'framer-motion'
-import { Gauge, Share2, Box } from 'lucide-react'
+import { motion } from "framer-motion";
+import { Gauge, Share2, Box } from "lucide-react";
 
 const Features = () => {
   return (
-    <div className="relative text-white py-20 px-4 sm:px-10 md:px-20 lg:px-32 overflow-hidden bg-[#0B0D11]">
+    <div
+      className="relative text-white py-20 px-4 sm:px-10 md:px-20 lg:px-32 overflow-hidden bg-[#0B0D11]"
+      id="features"
+    >
       {/* Gradient background from bottom to center */}
       <div className="absolute inset-0 pointer-events-none z-0"></div>
 
@@ -85,7 +87,7 @@ const Features = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Features
+export default Features;

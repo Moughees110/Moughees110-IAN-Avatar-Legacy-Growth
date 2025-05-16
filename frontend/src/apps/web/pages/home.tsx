@@ -11,28 +11,30 @@ import Process from "../components/process";
 import About from "./about";
 import { SuccessStories } from "../components/success-stories";
 import { OurTeam } from "./ourteam";
-import Comparison from '../components/comparison';
-import FAQsComponent from '../components/faqs';
-import Pricing from '../components/pricing';
+import Comparison from "../components/comparison";
+import FAQsComponent from "../components/faqs";
+import Pricing from "../components/pricing";
 
 export default function Home() {
   return (
     <>
-      <Hero />
-      <About />
+     
+        <Hero />
+        <About />
 
-      <Features />
+        <Features />
 
-      <Benefit />
-      <Integrations />
-      <Reviews />
-      <Process />
+        <Benefit />
+        <Integrations />
+        <Reviews />
+        <Process />
 
-      <SuccessStories />
-      <Pricing/>
-      <FAQsComponent />
-      <Comparison />
-      <OurTeam />
+        <SuccessStories />
+        <Pricing />
+        <FAQsComponent />
+        <Comparison />
+        <OurTeam />
+     
     </>
-  )
+  );
 }

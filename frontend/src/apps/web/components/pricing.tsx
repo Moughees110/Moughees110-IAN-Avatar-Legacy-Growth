@@ -1,56 +1,58 @@
-import { useState } from 'react'
-import { BadgeDollarSign, Check, Flame } from 'lucide-react'
-import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button'
+import { useState } from "react";
+import { BadgeDollarSign, Check, Flame } from "lucide-react";
+import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
 
 const Pricing = () => {
-  const [billing, setBilling] = useState<'monthly' | 'yearly'>('monthly')
+  const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
 
   const plans = [
     {
-      title: 'Basic',
-      monthlyPrice: '19',
-      yearlyPrice: '190',
+      title: "Basic",
+      monthlyPrice: "19",
+      yearlyPrice: "190",
       features: [
-        'Unlimited AI usage here',
-        'Premium support',
-        'Customer care on point',
-        'Collaboration tools',
+        "Unlimited AI usage here",
+        "Premium support",
+        "Customer care on point",
+        "Collaboration tools",
       ],
-      height: 'h-[28rem]',
+      height: "h-[28rem]",
     },
     {
-      title: 'Pro',
-      monthlyPrice: '39',
-      yearlyPrice: '390',
+      title: "Pro",
+      monthlyPrice: "39",
+      yearlyPrice: "390",
       features: [
-        'Integrations with 3rd-party',
-        'Advanced analytics',
-        'Team performance tracking',
-        'Top grade security',
-        'Customizable Solutions',
+        "Integrations with 3rd-party",
+        "Advanced analytics",
+        "Team performance tracking",
+        "Top grade security",
+        "Customizable Solutions",
       ],
-      height: 'h-[30rem]', // Swapped from 3rd card
+      height: "h-[30rem]", // Swapped from 3rd card
       popular: true,
     },
     {
-      title: 'Enterprise',
-      monthlyPrice: '79',
-      yearlyPrice: '790',
+      title: "Enterprise",
+      monthlyPrice: "79",
+      yearlyPrice: "790",
       features: [
-        'Custom reports & dashboards',
-        'Most performance usage',
-        'Dedicated Enterprise-grade security',
-        'Customizable Solutions',
-        'Seamless Integration',
-        'Dedicated account manager',
+        "Custom reports & dashboards",
+        "Most performance usage",
+        "Dedicated Enterprise-grade security",
+        "Customizable Solutions",
+        "Seamless Integration",
+        "Dedicated account manager",
       ],
-      height: 'h-[32rem]', // Swapped from 2nd card
+      height: "h-[32rem]", // Swapped from 2nd card
     },
-  ]
-
+  ];
 
   return (
-    <section className="relative bg-[#0B0D11] text-white py-20 px-4 sm:px-10 md:px-20 lg:px-32 overflow-hidden">
+    <section
+      className="relative bg-[#0B0D11] text-white py-20 px-4 sm:px-10 md:px-20 lg:px-32 overflow-hidden"
+      id="pricing"
+    >
       {/* Background Gradient */}
       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-t from-[#1F2025] to-transparent opacity-40 rounded-full blur-3xl pointer-events-none" />
 
@@ -61,7 +63,7 @@ const Pricing = () => {
           <span>Pricing</span>
         </div>
         <h2 className="text-4xl font-semibold">
-          Flexible Plans for{' '}
+          Flexible Plans for{" "}
           <span className="italic font-light mx-2">Everyone</span>
         </h2>
         <p className="text-gray-400 mt-2">
@@ -72,22 +74,22 @@ const Pricing = () => {
         <div className="mt-6 inline-flex border border-gray-600 rounded-full p-1 bg-[#11131A]">
           <button
             className={`px-4 py-1 rounded-full transition ${
-              billing === 'monthly'
-                ? 'bg-black text-white'
-                : 'text-white hover:bg-gray-800'
+              billing === "monthly"
+                ? "bg-black text-white"
+                : "text-white hover:bg-gray-800"
             }`}
-            onClick={() => setBilling('monthly')}
+            onClick={() => setBilling("monthly")}
           >
             Monthly
           </button>
 
           <button
             className={`flex items-center gap-2 px-4 py-1 rounded-full transition ${
-              billing === 'yearly'
-                ? 'bg-black text-white'
-                : 'text-white hover:bg-gray-800'
+              billing === "yearly"
+                ? "bg-black text-white"
+                : "text-white hover:bg-gray-800"
             }`}
-            onClick={() => setBilling('yearly')}
+            onClick={() => setBilling("yearly")}
           >
             <span>Yearly</span>
             <span className="bg-black text-white text-[10px] font-semibold px-2 py-[2px] rounded-full">
@@ -117,9 +119,9 @@ const Pricing = () => {
 
               <h3 className="text-xl font-semibold mb-2">{plan.title}</h3>
               <div className="text-4xl font-bold mb-4">
-                ${billing === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice}
+                ${billing === "monthly" ? plan.monthlyPrice : plan.yearlyPrice}
                 <span className="text-sm text-gray-400 font-medium ml-1">
-                  /{billing === 'monthly' ? 'mo' : 'yr'}
+                  /{billing === "monthly" ? "mo" : "yr"}
                 </span>
               </div>
               <div className="flex justify-center py-8">
@@ -144,7 +146,7 @@ const Pricing = () => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Pricing
+export default Pricing;

@@ -21,19 +21,48 @@ export default function Footer() {
             </div>
 
             {/* Navigation Links */}
+
             <div className="flex flex-wrap gap-6 text-sm">
-              <a href="#features" className="hover:text-white">
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("features")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="hover:text-white"
+              >
                 Features
-              </a>
-              <a href="#process" className="hover:text-white">
+              </button>
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("process")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="hover:text-white"
+              >
                 Process
-              </a>
-              <a href="#pricing" className="hover:text-white">
+              </button>
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("pricing")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="hover:text-white"
+              >
                 Pricing
-              </a>
-              <a href="#updates" className="hover:text-white">
+              </button>
+              <button
+                onClick={() =>
+                  document
+                    .getElementById("updates")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+                className="hover:text-white"
+              >
                 Updates
-              </a>
+              </button>
             </div>
           </div>
 

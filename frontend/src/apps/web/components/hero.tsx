@@ -20,7 +20,7 @@ function Hero() {
   }
 
   return (
-    <section className="relative h-screen w-full overflow-hidden text-white">
+    <section className="relative h-screen w-full overflow-hidden text-white" id='hero'>
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video

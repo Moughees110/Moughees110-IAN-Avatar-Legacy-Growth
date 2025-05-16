@@ -48,7 +48,7 @@ const users = [
 
 export default function Reviews() {
   return (
-    <section className="bg-[#0B0D11] text-white pb-4">
+    <section className="bg-[#0B0D11] text-white pb-4" id="reviews">
       <div className="text-center mb-12 relative flex flex-col items-center">
         <div className="flex items-center gap-2">
           <Heart className="w-4 h-4 text-white" />
