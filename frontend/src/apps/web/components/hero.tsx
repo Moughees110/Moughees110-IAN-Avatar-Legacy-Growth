@@ -12,6 +12,7 @@ import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-b
 
 
 
+
 function Hero() {
   const scrollToNextSection = () => {
     const next = document.getElementById('next-section')
