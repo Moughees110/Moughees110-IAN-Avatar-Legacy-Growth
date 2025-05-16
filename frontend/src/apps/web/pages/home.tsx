@@ -1,4 +1,6 @@
 import Benefit from "../components/Benefit";
+// import Comparison from '../components/comparison';
+// import FAQsComponent from '../components/faqs';
 import Features from "../components/features";
 import Hero from "../components/hero";
 import Integrations from "../components/integrations";
@@ -9,19 +11,28 @@ import Process from "../components/process";
 import About from "./about";
 import { SuccessStories } from "../components/success-stories";
 import { OurTeam } from "./ourteam";
+import Comparison from '../components/comparison';
+import FAQsComponent from '../components/faqs';
+import Pricing from '../components/pricing';
 
 export default function Home() {
   return (
     <>
       <Hero />
       <About />
+
       <Features />
+
       <Benefit />
       <Integrations />
       <Reviews />
       <Process />
+
       <SuccessStories />
+      <Pricing/>
+      <FAQsComponent />
+      <Comparison />
       <OurTeam />
     </>
-  );
+  )
 }

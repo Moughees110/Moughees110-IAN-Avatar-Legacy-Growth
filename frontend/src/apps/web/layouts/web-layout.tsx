@@ -2,6 +2,7 @@
 
 import { Outlet } from 'react-router-dom';
 import Navbar from '../pages/navbar';
+import Footer from '../pages/footer';
 
 const WebLayout = () => {
   return (
@@ -9,6 +10,7 @@ const WebLayout = () => {
 
      <Navbar/>
       <Outlet />
+      <Footer/>
     </div>
   );
 };

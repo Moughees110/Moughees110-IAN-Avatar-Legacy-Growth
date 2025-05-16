@@ -1,0 +1,106 @@
+import { LandPlot } from 'lucide-react'
+import {
+  FaInstagram,
+  FaTiktok,
+  FaLinkedin,
+  FaYoutube,
+  FaSkype,
+} from 'react-icons/fa'
+
+export default function Footer() {
+  return (
+    <footer className="bg-[#0B0D11] text-gray-400 border-t border-[#1a1a1a]">
+      {/* Top: Logo + Nav Links + Socials */}
+      <div className="max-w-7xl mx-auto px-8 py-10">
+        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+          {/* Left Section: Logo + Links */}
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <LandPlot size={20} className="text-white" />
+              <h2 className="text-white text-xl italic font-medium">Landio</h2>
+            </div>
+
+            {/* Navigation Links */}
+            <div className="flex flex-wrap gap-6 text-sm">
+              <a href="#features" className="hover:text-white">
+                Features
+              </a>
+              <a href="#process" className="hover:text-white">
+                Process
+              </a>
+              <a href="#pricing" className="hover:text-white">
+                Pricing
+              </a>
+              <a href="#updates" className="hover:text-white">
+                Updates
+              </a>
+            </div>
+          </div>
+
+          {/* Right Section: Social Icons */}
+          <div className="flex items-center gap-4 mt-2 md:mt-0">
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              <FaInstagram size={18} />
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              <FaTiktok size={18} />
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              <FaLinkedin size={18} />
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              <FaYoutube size={18} />
+            </a>
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              <FaSkype size={18} />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom: Copyright + Tags */}
+      <div className="border-t border-[#1a1a1a] text-sm py-4 px-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-gray-300">
+            © {new Date().getFullYear()} Landio. All rights reserved.
+          </p>
+          <div className="flex items-center gap-4">
+            <span className="text-gray-300">
+              Made by{' '}
+              <span className="hover:text-white cursor-pointer">Pakistan</span>
+            </span>
+            <span className="text-gray-300">
+              Built in{' '}
+              <span className="hover:text-white cursor-pointer">Framer</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
