@@ -81,29 +81,18 @@ function Hero() {
             <InteractiveHoverButton>Get Started</InteractiveHoverButton>
           </div>
 
-          <div
-            className="flex justify-center gap-6 mb-8"
-            data-aos="fade-up"
-            data-aos-delay="500"
-          >
-            <TwitterX
-              className="text-slate-400 hover:text-white transition"
-              size={24}
-            />
-            <Instagram
-              className="text-slate-400 hover:text-white transition"
-              size={24}
-            />
-            <Facebook
-              className="text-slate-400 hover:text-white transition"
-              size={24}
-            />
+          <div className="flex justify-center items-center gap-8 mt-10 text-gray-400">
+            <TwitterX className="w-6 h-6 hover:text-white cursor-pointer" />
+            <div className="w-px h-6 bg-gray-600" />
+            <Instagram className="w-6 h-6 hover:text-white cursor-pointer" />
+            <div className="w-px h-6 bg-gray-600" />
+            <Facebook className="w-6 h-6 hover:text-white cursor-pointer" />
           </div>
 
           {/* Scroll Icon */}
           <div
             onClick={scrollToNextSection}
-            className="text-slate-500 animate-bounce cursor-pointer"
+            className="text-slate-500 mt-8 animate-bounce cursor-pointer"
             data-aos="fade-up"
             data-aos-delay="600"
           >
