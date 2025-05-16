@@ -1,11 +1,11 @@
-import { LandPlot } from 'lucide-react'
 import {
-  FaInstagram,
-  FaTiktok,
-  FaLinkedin,
-  FaYoutube,
-  FaSkype,
-} from 'react-icons/fa'
+  LandPlot,
+  Instagram,
+  Linkedin,
+  Youtube,
+  // Skype,
+  Music2,
+} from "lucide-react";
 
 export default function Footer() {
   return (
@@ -45,7 +45,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="hover:text-white"
             >
-              <FaInstagram size={18} />
+              <Instagram size={18} />
             </a>
             <a
               href="#"
@@ -53,7 +53,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="hover:text-white"
             >
-              <FaTiktok size={18} />
+              <Music2 size={18} /> {/* Used as TikTok placeholder */}
             </a>
             <a
               href="#"
@@ -61,7 +61,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="hover:text-white"
             >
-              <FaLinkedin size={18} />
+              <Linkedin size={18} />
             </a>
             <a
               href="#"
@@ -69,16 +69,16 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="hover:text-white"
             >
-              <FaYoutube size={18} />
+              <Youtube size={18} />
             </a>
-            <a
+            {/* <a
               href="#"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white"
             >
-              <FaSkype size={18} />
-            </a>
+              <Skype size={18} />
+            </a> */}
           </div>
         </div>
       </div>
@@ -91,16 +91,16 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-4">
             <span className="text-gray-300">
-              Made by{' '}
+              Made by{" "}
               <span className="hover:text-white cursor-pointer">Pakistan</span>
             </span>
             <span className="text-gray-300">
-              Built in{' '}
+              Built in{" "}
               <span className="hover:text-white cursor-pointer">Framer</span>
             </span>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

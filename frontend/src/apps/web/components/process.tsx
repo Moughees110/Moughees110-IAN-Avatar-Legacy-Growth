@@ -63,7 +63,7 @@ export default function HowLandioWorks() {
                 key={tab.key}
                 value={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className="w-full bg-[#0B0D11] text-white data-[state=active]:bg-[#2a2a2a] data-[state=active]:text-white border border-[#2c2c2c] rounded-md py-2 text-sm"
+                className="w-full bg-[#0B0D11] text-white data-[state=active]:bg-[#0B0D29] data-[state=active]:text-white border border-[#2c2c2c] rounded-md py-2 text-sm"
               >
                 {tab.key.toUpperCase().replace("STEP", "STEP ")}
               </TabsTrigger>

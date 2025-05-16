@@ -1,50 +1,50 @@
-
-import { Heart } from 'lucide-react'
+import { Heart } from "lucide-react";
+import SingleLineMarquee from "./single-line-marquee";
 
 const users = [
   {
-    name: 'David L.',
-    role: 'Operations Lead',
-    image: '/website/2brzgXS5fJHHMvAH83vgl5m8KTI.avif',
+    name: "David L.",
+    role: "Operations Lead",
+    image: "/website/2brzgXS5fJHHMvAH83vgl5m8KTI.avif",
     quote:
-      'The integrations are seamless. The workflow customization saves me hours every week.',
+      "The integrations are seamless. The workflow customization saves me hours every week.",
   },
   {
-    name: 'Emily T.',
-    role: 'Founder & CEO',
-    image: '/website/BgsxdPJJZ3faakDHp1W2WcB8CoM.avif',
+    name: "Emily T.",
+    role: "Founder & CEO",
+    image: "/website/BgsxdPJJZ3faakDHp1W2WcB8CoM.avif",
     quote:
-      'The integrations are seamless. The workflow customization saves me hours every week.',
+      "The integrations are seamless. The workflow customization saves me hours every week.",
   },
   {
-    name: 'Samantha R.',
-    role: 'Product Manager',
-    image: '/website/G1bC6MQnKLl8c7ZyjwpJlVGuw.avif',
+    name: "Samantha R.",
+    role: "Product Manager",
+    image: "/website/G1bC6MQnKLl8c7ZyjwpJlVGuw.avif",
     quote:
-      'The integrations are seamless. The workflow customization saves me hours every week.',
+      "The integrations are seamless. The workflow customization saves me hours every week.",
   },
   {
-    name: 'James K.',
-    role: 'Marketing Director',
-    image: '/website/mCkhYgyE0LSy9RJ4nVmmGTpAjLA.avif',
+    name: "James K.",
+    role: "Marketing Director",
+    image: "/website/mCkhYgyE0LSy9RJ4nVmmGTpAjLA.avif",
     quote:
-      'The integrations are seamless. The workflow customization saves me hours every week.',
+      "The integrations are seamless. The workflow customization saves me hours every week.",
   },
   {
-    name: 'Carlos M.',
-    role: 'IT Specialist',
-    image: '/website/2brzgXS5fJHHMvAH83vgl5m8KTI.avif',
+    name: "Carlos M.",
+    role: "IT Specialist",
+    image: "/website/2brzgXS5fJHHMvAH83vgl5m8KTI.avif",
     quote:
-      'The integrations are seamless. The workflow customization saves me hours every week.',
+      "The integrations are seamless. The workflow customization saves me hours every week.",
   },
   {
-    name: 'Jessica M.',
-    role: 'Team Lead',
-    image: '/website/BgsxdPJJZ3faakDHp1W2WcB8CoM.avif',
+    name: "Jessica M.",
+    role: "Team Lead",
+    image: "/website/BgsxdPJJZ3faakDHp1W2WcB8CoM.avif",
     quote:
-      'The integrations are seamless. The workflow customization saves me hours every week.',
+      "The integrations are seamless. The workflow customization saves me hours every week.",
   },
-]
+];
 
 export default function Reviews() {
   return (
@@ -61,6 +61,7 @@ export default function Reviews() {
           Hear from real users who achieved success with our platform
         </p>
       </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-12 max-w-7xl mx-auto">
         {users.map((user, index) => (
           <div
@@ -85,6 +86,11 @@ export default function Reviews() {
           </div>
         ))}
       </div>
+
+      {/* 👇 Constrain Marquee width to match the above section */}
+      <div className="max-w-7xl mx-auto px-4 md:px-12 mt-10">
+        <SingleLineMarquee />
+      </div>
     </section>
-  )
+  );
 }
