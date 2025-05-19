@@ -2,19 +2,19 @@ import { Check, X, ListChecks, LandPlot, Layers } from 'lucide-react'
 
 const Comparison = () => {
   const AIFeatures = [
-    'Fast and secure deployment',
-    'Built-in analytics and SEO',
-    'Easy integrations with APIs',
-    'Fully responsive design',
-    'Custom support and updates',
+    'Real-time natural language understanding',
+    'Multi-language voice recognition',
+    'Seamless integration with popular messaging apps',
+    'Continuous learning and improvement',
+    '24/7 dedicated support and updates',
   ]
 
   const otherFeatures = [
-    'Slow deployment process',
-    'Limited SEO capabilities',
-    'Hard to integrate external APIs',
-    'Basic mobile responsiveness',
-    'No dedicated support team',
+    'Limited to text-based interactions',
+    'Supports only a few languages',
+    'Difficult to connect with third-party apps',
+    'Static scripts without learning capability',
+    'No dedicated customer support',
   ]
 
   return (
@@ -29,11 +29,12 @@ const Comparison = () => {
           <span>Comparison</span>
         </div>
         <h2 className="text-4xl font-semibold mb-2">
-          Why <span className="italic font-light">AI</span> Stands Out?
+          Why <span className="italic font-light">Our Voice AI</span> Stands
+          Out?
         </h2>
         <p className="text-gray-400 max-w-xl mx-auto">
-          See how AI compares against other platforms and what makes us the
-          right choice for your business.
+          Discover how our voice AI chatbot excels compared to traditional
+          chatbot platforms.
         </p>
       </div>
 
@@ -41,11 +42,11 @@ const Comparison = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4 text-center relative z-10">
         <div className="flex justify-center items-center gap-2 text-2xl font-bold">
           <LandPlot size={24} className="text-gray-200" />
-          AI
+          Voice AI
         </div>
         <div className="flex justify-center items-center gap-2 text-2xl font-bold">
           <Layers size={24} className="text-gray-200" />
-          Other
+          Traditional Chatbots
         </div>
       </div>
 

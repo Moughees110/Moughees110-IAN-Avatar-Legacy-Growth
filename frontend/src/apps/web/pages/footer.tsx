@@ -5,7 +5,7 @@ import {
   Youtube,
   // Skype,
   Music2,
-} from "lucide-react";
+} from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -17,7 +17,9 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-3">
               <LandPlot size={20} className="text-white" />
-              <h2 className="text-white text-xl italic font-medium">AI</h2>
+              <h2 className="text-white text-xl italic font-medium">
+                Vibes by Horton
+              </h2>
             </div>
 
             {/* Navigation Links */}
@@ -26,8 +28,8 @@ export default function Footer() {
               <button
                 onClick={() =>
                   document
-                    .getElementById("features")
-                    ?.scrollIntoView({ behavior: "smooth" })
+                    .getElementById('features')
+                    ?.scrollIntoView({ behavior: 'smooth' })
                 }
                 className="hover:text-white"
               >
@@ -36,8 +38,8 @@ export default function Footer() {
               <button
                 onClick={() =>
                   document
-                    .getElementById("process")
-                    ?.scrollIntoView({ behavior: "smooth" })
+                    .getElementById('process')
+                    ?.scrollIntoView({ behavior: 'smooth' })
                 }
                 className="hover:text-white"
               >
@@ -46,8 +48,8 @@ export default function Footer() {
               <button
                 onClick={() =>
                   document
-                    .getElementById("pricing")
-                    ?.scrollIntoView({ behavior: "smooth" })
+                    .getElementById('pricing')
+                    ?.scrollIntoView({ behavior: 'smooth' })
                 }
                 className="hover:text-white"
               >
@@ -56,8 +58,8 @@ export default function Footer() {
               <button
                 onClick={() =>
                   document
-                    .getElementById("updates")
-                    ?.scrollIntoView({ behavior: "smooth" })
+                    .getElementById('updates')
+                    ?.scrollIntoView({ behavior: 'smooth' })
                 }
                 className="hover:text-white"
               >
@@ -116,20 +118,25 @@ export default function Footer() {
       <div className="border-t border-[#1a1a1a] text-sm py-4 px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-gray-300">
-            © {new Date().getFullYear()} AI. All rights reserved.
+            © {new Date().getFullYear()} IAN. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <span className="text-gray-300">
-              Made by{" "}
-              <span className="hover:text-white cursor-pointer">Pakistan</span>
+              Made by{' '}
+              <a href="https://www.huboweb.com/" target="_blank">
+                <span className="hover:text-white cursor-pointer text-decoration-none font-bold">
+                  HuboWeb Technologies (Private) Limited.
+                </span>
+              </a>
             </span>
-            <span className="text-gray-300">
-              Built in{" "}
+
+            {/* <span className="text-gray-300">
+              Built in{' '}
               <span className="hover:text-white cursor-pointer">Framer</span>
-            </span>
+            </span> */}
           </div>
         </div>
       </div>
     </footer>
-  );
+  )
 }

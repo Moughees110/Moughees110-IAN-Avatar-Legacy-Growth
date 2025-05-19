@@ -1,50 +1,50 @@
-import { Heart } from "lucide-react";
-import SingleLineMarquee from "./single-line-marquee";
+import { Heart } from 'lucide-react'
+import SingleLineMarquee from './single-line-marquee'
 
 const users = [
   {
-    name: "David L.",
-    role: "Operations Lead",
-    image: "/website/2brzgXS5fJHHMvAH83vgl5m8KTI.avif",
+    name: 'David L.',
+    role: 'Operations Lead',
+    image: '/website/2brzgXS5fJHHMvAH83vgl5m8KTI.avif',
     quote:
-      "The integrations are seamless. The workflow customization saves me hours every week.",
+      'IAN helps me manage daily operations through simple voice commands — it’s like having a real assistant.',
   },
   {
-    name: "Emily T.",
-    role: "Founder & CEO",
-    image: "/website/BgsxdPJJZ3faakDHp1W2WcB8CoM.avif",
+    name: 'Emily T.',
+    role: 'Founder & CEO',
+    image: '/website/BgsxdPJJZ3faakDHp1W2WcB8CoM.avif',
     quote:
-      "The integrations are seamless. The workflow customization saves me hours every week.",
+      'IAN feels human. The voice interaction is so smooth, I forget it’s AI. Game-changer for leadership workflows.',
   },
   {
-    name: "Samantha R.",
-    role: "Product Manager",
-    image: "/website/G1bC6MQnKLl8c7ZyjwpJlVGuw.avif",
+    name: 'Samantha R.',
+    role: 'Product Manager',
+    image: '/website/G1bC6MQnKLl8c7ZyjwpJlVGuw.avif',
     quote:
-      "The integrations are seamless. The workflow customization saves me hours every week.",
+      'I use IAN in team meetings to capture notes and action items — hands-free and lightning fast.',
   },
   {
-    name: "James K.",
-    role: "Marketing Director",
-    image: "/website/mCkhYgyE0LSy9RJ4nVmmGTpAjLA.avif",
+    name: 'James K.',
+    role: 'Marketing Director',
+    image: '/website/mCkhYgyE0LSy9RJ4nVmmGTpAjLA.avif',
     quote:
-      "The integrations are seamless. The workflow customization saves me hours every week.",
+      'IAN integrates perfectly with our CRM tools. Just speak — and it’s done.',
   },
   {
-    name: "Carlos M.",
-    role: "IT Specialist",
-    image: "/website/2brzgXS5fJHHMvAH83vgl5m8KTI.avif",
+    name: 'Carlos M.',
+    role: 'IT Specialist',
+    image: '/website/2brzgXS5fJHHMvAH83vgl5m8KTI.avif',
     quote:
-      "The integrations are seamless. The workflow customization saves me hours every week.",
+      'Privacy was my top concern. IAN’s voice security protocols gave me full confidence to implement it.',
   },
   {
-    name: "Jessica M.",
-    role: "Team Lead",
-    image: "/website/BgsxdPJJZ3faakDHp1W2WcB8CoM.avif",
+    name: 'Jessica M.',
+    role: 'Team Lead',
+    image: '/website/BgsxdPJJZ3faakDHp1W2WcB8CoM.avif',
     quote:
-      "The integrations are seamless. The workflow customization saves me hours every week.",
+      'I can assign tasks, set reminders, and manage the team — all while walking. Voice-first leadership is here.',
   },
-];
+]
 
 export default function Reviews() {
   return (
@@ -55,10 +55,11 @@ export default function Reviews() {
           <p className="text-sm text-gray-400">REVIEWS</p>
         </div>
         <h2 className="text-4xl font-semibold mt-2">
-          Trusted by <span className="italic font-light">Visionaries</span>
+          Trusted by <span className="italic font-light">Real Users</span>
         </h2>
         <p className="text-gray-400 mt-2">
-          Hear from real users who achieved success with our platform
+          Hear how IAN is transforming communication and productivity through
+          voice AI.
         </p>
       </div>
 
@@ -87,10 +88,9 @@ export default function Reviews() {
         ))}
       </div>
 
-      {/* 👇 Constrain Marquee width to match the above section */}
       <div className="max-w-7xl mx-auto px-4 md:px-12 mt-10">
         <SingleLineMarquee />
       </div>
     </section>
-  );
+  )
 }

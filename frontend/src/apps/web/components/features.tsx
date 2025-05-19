@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { Gauge, Share2, Box } from "lucide-react";
+import { motion } from 'framer-motion'
+import { Gauge, Share2, Box } from 'lucide-react'
 
 const Features = () => {
   return (
@@ -11,19 +11,17 @@ const Features = () => {
       <div className="absolute inset-0 pointer-events-none z-0"></div>
 
       <div className="text-center mb-16 relative z-10">
-        <div
-          className=" border border-gray-800 shadow w-32 rounded-md mx-auto
-        flex items-center justify-center gap-2 text-xs uppercase tracking-widest text-white mb-2"
-        >
+        <div className="border border-gray-800 shadow w-32 rounded-md mx-auto flex items-center justify-center gap-2 text-xs uppercase tracking-widest text-white mb-2">
           <Box className="w-4 h-4 text-white" />
           <span>Features</span>
         </div>
         <h2 className="text-4xl font-semibold">
-          All features in <em className="italic text-gray-300">1 tool</em>
+          Smart Features,{' '}
+          <em className="italic text-gray-300">Smarter Conversations</em>
         </h2>
         <p className="text-gray-400 mt-3">
-          Everything you need to collaborate, create, and scale, all in one
-          place.
+          Everything IAN does is built to make your voice interactions feel
+          natural, intelligent, and intuitive.
         </p>
       </div>
 
@@ -34,19 +32,19 @@ const Features = () => {
             <div className="flex justify-center mb-6 relative w-16 h-16">
               <Gauge size={150} className="text-[#151a2bc5] left-22 absolute" />
               <motion.div
-                className="w-2 h-2  left-38  rounded-full absolute  top-23 origin-left"
+                className="w-2 h-2 left-38 rounded-full absolute top-23 origin-left"
                 initial={{ rotate: -30 }}
                 whileHover={{ rotate: -50 }}
                 transition={{ duration: 0.3 }}
               />
             </div>
-            <div className="mt-20">
+            <div className="mt-28">
               <h3 className="text-xl font-semibold text-white mb-2">
-                Real-Time Insights
+                Real-Time Voice AI
               </h3>
               <p className="text-sm text-gray-400 leading-relaxed">
-                Stay ahead of the curve with accurate, real-time performance
-                tracking and analytics — all in one place.
+                IAN listens and responds instantly — no delays, just natural and
+                intelligent voice conversation.
               </p>
             </div>
           </div>
@@ -59,14 +57,15 @@ const Features = () => {
                   key={i}
                   className="w-9 bg-[#151a2bc5] rounded"
                   initial={{ height: `${h}%` }}
-                  whileHover={{ height: `${+20}%` }}
+                  whileHover={{ height: `${h + 20}%` }}
                   transition={{ duration: 0.3 }}
                 />
               ))}
             </div>
-            <h3 className="text-lg font-semibold mb-2">Measurable Growth</h3>
+            <h3 className="text-lg font-semibold mb-2">Learns With You</h3>
             <p className="text-sm text-gray-400">
-              Monitor your progress and achieve sustainable growth
+              IAN adapts to your speaking style, preferences, and needs over
+              time for more personalized responses.
             </p>
           </div>
 
@@ -77,17 +76,16 @@ const Features = () => {
                 <Share2 size={150} className="text-[#151a2bc5]" />
               </motion.div>
             </div>
-            <h3 className="text-lg font-semibold mb-2">
-              Seamless Collaboration
-            </h3>
+            <h3 className="text-lg font-semibold mb-2">Multiplatform Access</h3>
             <p className="text-sm text-gray-400">
-              Streamline your workflow, all in one place with ease
+              Use IAN anywhere — web, mobile, or smart devices. Seamlessly
+              integrated into your life.
             </p>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Features;
+export default Features

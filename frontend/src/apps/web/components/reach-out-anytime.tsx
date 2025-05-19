@@ -1,4 +1,3 @@
-
 import { Instagram, Facebook, X } from 'lucide-react'
 import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button'
 
@@ -8,7 +7,9 @@ export default function ReachOutAnytime() {
       <div className="text-center max-w-2xl relative z-10">
         <div className="flex items-center justify-center gap-4 mb-2">
           <div className="h-px w-8 bg-gray-600" />
-          <p className="text-sm text-gray-400">Reach out anytime</p>
+          <p className="text-sm text-gray-400 uppercase tracking-wide">
+            Reach out anytime
+          </p>
           <div className="h-px w-8 bg-gray-600" />
         </div>
 
@@ -18,7 +19,7 @@ export default function ReachOutAnytime() {
         </h1>
 
         <p className="mt-4 text-sm md:text-base text-gray-400">
-          unlock endless possibilities with AI
+          Unlock endless possibilities with AI
         </p>
 
         <div className="mt-6">
@@ -39,8 +40,6 @@ export default function ReachOutAnytime() {
           AI@support.com
         </p>
       </div>
-
-
     </div>
   )
 }

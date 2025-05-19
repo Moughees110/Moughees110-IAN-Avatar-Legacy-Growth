@@ -57,10 +57,12 @@ export default function IntegrationsMarquee() {
         </div>
 
         <h2 className="text-4xl font-semibold mb-4">
-          Seamless <span className="italic font-light">Integrations</span>
+          Integrations That Power Your{' '}
+          <span className="italic font-light">Voice</span>
         </h2>
         <p className="text-gray-400 mb-10">
-          Interact with all your favorite software without unnecessary fuss
+          IAN connects seamlessly with the tools you already use — making your
+          conversations smarter and more productive.
         </p>
 
         <div className="relative w-full rounded-3xl shadow-xl backdrop-blur-lg bg-[#0B0D11] overflow-hidden py-8 space-y-6">
@@ -81,7 +83,8 @@ export default function IntegrationsMarquee() {
           </Marquee>
 
           <p className="text-gray-400 text-sm mt-4">
-            "Connect with 100's of apps without leaving the site"
+            "IAN integrates effortlessly with 100+ apps — so your voice does
+            more, faster."
           </p>
 
           {/* Edge fade gradients */}

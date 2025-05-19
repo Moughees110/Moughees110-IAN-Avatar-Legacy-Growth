@@ -1,4 +1,3 @@
-
 import {
   Accordion,
   AccordionContent,
@@ -16,10 +15,11 @@ export default function FAQsComponent() {
           <HelpCircle className="w-4 h-4" /> FAQ's
         </div>
         <h1 className="text-4xl md:text-5xl font-bold">
-          Frequently Asked <span className="italic font-light">Question</span>
+          Frequently Asked <span className="italic font-light">Questions</span>
         </h1>
         <p className="mt-4 text-muted-foreground">
-          Find quick answers to the most common questions about our platform
+          Quick answers to the most common questions about our voice AI chatbot
+          platform.
         </p>
 
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -32,7 +32,7 @@ export default function FAQsComponent() {
               Still Have Questions?
             </h3>
             <p className="text-sm text-muted-foreground mb-4">
-              Still have questions? Feel free to get in touch with us today!
+              Reach out anytime, and our team will help you get started.
             </p>
             <Button className="gap-2 cursor-pointer text-sm px-4 py-2 text-gray-300 bg-[#0F1014] shadow-md border border-gray-600">
               <ArrowUpRight className="w-4 h-4 text-white" /> Ask A Question
@@ -44,11 +44,12 @@ export default function FAQsComponent() {
             <div className="bg-[#0F1014] border border-[#1A1A1A] rounded-xl p-2">
               <AccordionItem value="item-1">
                 <AccordionTrigger>
-                  Is the template SEO-friendly?
+                  How does your voice AI chatbot work?
                 </AccordionTrigger>
                 <AccordionContent>
-                  Yes, the template is built with SEO best practices, making it
-                  easy to optimize your content for search engines.
+                  Our chatbot uses advanced voice recognition and natural
+                  language processing to understand and respond to your users in
+                  real-time.
                 </AccordionContent>
               </AccordionItem>
             </div>
@@ -56,11 +57,11 @@ export default function FAQsComponent() {
             <div className="bg-[#0F1014] border border-[#1A1A1A] rounded-xl p-2">
               <AccordionItem value="item-2">
                 <AccordionTrigger>
-                  What’s included with the template?
+                  Can I customize the chatbot’s voice and personality?
                 </AccordionTrigger>
                 <AccordionContent>
-                  The template includes a complete UI kit, documentation, and
-                  all necessary components for quick setup.
+                  Yes, you can customize voice tones, accents, and personality
+                  traits to match your brand identity perfectly.
                 </AccordionContent>
               </AccordionItem>
             </div>
@@ -68,11 +69,11 @@ export default function FAQsComponent() {
             <div className="bg-[#0F1014] border border-[#1A1A1A] rounded-xl p-2">
               <AccordionItem value="item-3">
                 <AccordionTrigger>
-                  Can I use this template to create a landing page?
+                  Is the chatbot compatible with multiple platforms?
                 </AccordionTrigger>
                 <AccordionContent>
-                  Yes, this template is perfect for creating high-converting
-                  landing pages.
+                  Absolutely! Our chatbot supports integration with websites,
+                  mobile apps, and popular messaging platforms.
                 </AccordionContent>
               </AccordionItem>
             </div>
@@ -80,11 +81,11 @@ export default function FAQsComponent() {
             <div className="bg-[#0F1014] border border-[#1A1A1A] rounded-xl p-2">
               <AccordionItem value="item-4">
                 <AccordionTrigger>
-                  Is this template optimized for accessibility?
+                  How secure is the data collected by the chatbot?
                 </AccordionTrigger>
                 <AccordionContent>
-                  Absolutely, it follows best practices to ensure it is
-                  accessible to all users.
+                  We prioritize user privacy and data security with end-to-end
+                  encryption and compliance with data protection regulations.
                 </AccordionContent>
               </AccordionItem>
             </div>
@@ -92,11 +93,11 @@ export default function FAQsComponent() {
             <div className="bg-[#0F1014] border border-[#1A1A1A] rounded-xl p-2">
               <AccordionItem value="item-5">
                 <AccordionTrigger>
-                  Does the template include mobile responsiveness?
+                  Can I analyze conversations and user interactions?
                 </AccordionTrigger>
                 <AccordionContent>
-                  Yes, the template is fully responsive and works seamlessly on
-                  all screen sizes.
+                  Yes, our platform includes analytics tools to track user
+                  interactions, conversation flow, and performance metrics.
                 </AccordionContent>
               </AccordionItem>
             </div>
@@ -109,4 +110,3 @@ export default function FAQsComponent() {
     </section>
   )
 }
-

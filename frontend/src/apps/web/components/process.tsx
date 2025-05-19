@@ -1,42 +1,41 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { BadgeCheck } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { BadgeCheck } from 'lucide-react'
+import { Card } from '@/components/ui/card'
 
 const tabData = [
   {
-    key: "step1",
-    title: "Connect Your Data",
+    key: 'step1',
+    title: 'Connect Your Voice',
     description:
-      "Effortlessly integrate with all your tools to bring data into one place.",
+      'Start by enabling your mic or linking IAN to your smart device. It takes seconds to get set up.',
     image:
-      "https://framerusercontent.com/images/0DBAix0ysUgnw6WhKOms5oGcN8.png?scale-down-to=1024",
+      'https://framerusercontent.com/images/0DBAix0ysUgnw6WhKOms5oGcN8.png?scale-down-to=1024',
   },
   {
-    key: "step2",
-    title: "Analyze Performance",
+    key: 'step2',
+    title: 'Just Start Talking',
     description:
-      "Use our dashboards to get a detailed understanding of your business health.",
+      'Ask IAN anything. From daily tasks to deep research, it listens, understands, and responds naturally.',
     image:
-      "https://framerusercontent.com/images/EPErbkkqsOxh8MmRFjfhCGP08.png?scale-down-to=1024",
+      'https://framerusercontent.com/images/EPErbkkqsOxh8MmRFjfhCGP08.png?scale-down-to=1024',
   },
   {
-    key: "step3",
-    title: "Get Clear Insights",
+    key: 'step3',
+    title: 'Get Voice-First Results',
     description:
-      "Our AI delivers insights that are ready to be acted upon, helping you make informed decisions.",
+      'IAN gives you results, reminders, and answers — all by voice. No typing. No tapping. Just talking.',
     image:
-      "https://framerusercontent.com/images/0DBAix0ysUgnw6WhKOms5oGcN8.png?scale-down-to=1024",
+      'https://framerusercontent.com/images/0DBAix0ysUgnw6WhKOms5oGcN8.png?scale-down-to=1024',
   },
-];
+]
 
-export default function HowLandioWorks() {
-  const [activeTab, setActiveTab] = useState("step1");
-
-  const current = tabData.find((tab) => tab.key === activeTab);
+export default function HowIANWorks() {
+  const [activeTab, setActiveTab] = useState('step1')
+  const current = tabData.find((tab) => tab.key === activeTab)
 
   return (
     <section className="w-full bg-[#0B0D11] text-white py-20 px-4" id="process">
@@ -46,11 +45,10 @@ export default function HowLandioWorks() {
           <span>Process</span>
         </div>
         <h2 className="text-4xl font-bold">
-          How Landio <span className="italic font-light">Works</span>
+          How <span className="italic font-light">IAN</span> Works
         </h2>
         <p className="text-muted-foreground mt-3">
-          Everything you need to collaborate, create, and scale, all in one
-          place.
+          From setup to voice mastery — here’s how IAN gets you talking smarter.
         </p>
       </div>
 
@@ -65,7 +63,7 @@ export default function HowLandioWorks() {
                 onClick={() => setActiveTab(tab.key)}
                 className="w-full bg-[#0B0D11] text-white data-[state=active]:bg-[#0B0D29] data-[state=active]:text-white border border-[#2c2c2c] rounded-md py-2 text-sm"
               >
-                {tab.key.toUpperCase().replace("STEP", "STEP ")}
+                {tab.key.toUpperCase().replace('STEP', 'STEP ')}
               </TabsTrigger>
             ))}
           </TabsList>
@@ -110,5 +108,5 @@ export default function HowLandioWorks() {
         </div>
       </Card>
     </section>
-  );
+  )
 }

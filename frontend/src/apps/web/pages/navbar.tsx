@@ -32,7 +32,7 @@ export default function Navbar() {
             href="#hero"
             className="text-xl italic font-medium hover:opacity-80 transition"
           >
-            AI
+            Vibes by Horton
           </a>
         </div>
 
@@ -103,5 +103,5 @@ export default function Navbar() {
         </div>
       )}
     </header>
-  );
+  )
 }

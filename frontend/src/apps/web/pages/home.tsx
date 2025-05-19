@@ -15,6 +15,7 @@ import Comparison from "../components/comparison";
 import FAQsComponent from "../components/faqs";
 import Pricing from "../components/pricing";
 import ReachOutAnytime from "../components/reach-out-anytime";
+import Contact from '../components/contact';
 
 export default function Home() {
   return (
@@ -35,6 +36,7 @@ export default function Home() {
       <Comparison />
       <OurTeam />
       <ReachOutAnytime />
+      <Contact/>
     </>
   );
 }

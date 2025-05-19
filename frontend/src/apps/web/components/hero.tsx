@@ -20,7 +20,10 @@ function Hero() {
   }
 
   return (
-    <section className="relative h-screen w-full overflow-hidden text-white" id='hero'>
+    <section
+      className="relative h-screen w-full overflow-hidden text-white"
+      id="hero"
+    >
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <video
@@ -65,8 +68,7 @@ function Hero() {
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Unleash Your Full Potential with{' '}
-            <span className="font-light italic">AI</span>
+            Talk Smart with <span className="font-light italic">IAN</span>
           </h1>
 
           <p
@@ -74,11 +76,12 @@ function Hero() {
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            Transform Possibilities into Reality with Lio
+            Your intelligent voice companion – ready to chat, assist, and
+            simplify your world.
           </p>
 
           <div className="relative justify-center pb-6 text-black">
-            <InteractiveHoverButton>Get Started</InteractiveHoverButton>
+            <InteractiveHoverButton>Start Talking</InteractiveHoverButton>
           </div>
 
           <div className="flex justify-center items-center gap-8 mt-10 text-gray-400">

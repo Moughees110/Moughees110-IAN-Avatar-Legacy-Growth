@@ -1,90 +1,88 @@
-"use client";
+'use client'
 
-import { Biohazard, Instagram, Linkedin, Twitter } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
-import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { Biohazard, Instagram, Linkedin, Twitter } from 'lucide-react'
+import { motion, AnimatePresence } from 'motion/react'
+import { useState } from 'react'
 
 const TEAM_MEMBERS = [
   {
     id: 1,
-    name: "Moughees Jafri",
-    role: "Founder & CEO",
+    name: 'Ayesha Malik',
+    role: 'Chief Executive Officer',
     image:
-      "https://framerusercontent.com/images/cy4wavbyt81gvoWNZYNvS2mmo8.png?scale-down-to=1024",
-    instagram: "#",
-    linkedin: "#",
-    twitter: "#",
+      'https://framerusercontent.com/images/XFFLjET4kskD3uCeXXbsOEjE.png?scale-down-to=1024',
+    instagram: 'https://instagram.com/ayesha',
+    linkedin: 'https://linkedin.com/in/ayesha-malik',
+    twitter: 'https://twitter.com/ayesha_malik',
   },
   {
     id: 2,
-    name: "Zain Ul Abideen",
-    role: "Co-Founder & CTO",
+    name: 'Omar Siddiqui',
+    role: 'Chief Technology Officer',
     image:
-      "https://framerusercontent.com/images/JIIlDuVwdfJZuOpFYqQevpNQRrU.png?scale-down-to=1024",
-    instagram: "#",
-    linkedin: "#",
-    twitter: "#",
+      'https://framerusercontent.com/images/JIIlDuVwdfJZuOpFYqQevpNQRrU.png?scale-down-to=1024',
+    instagram: 'https://instagram.com/omar',
+    linkedin: 'https://linkedin.com/in/omar-siddiqui',
+    twitter: 'https://twitter.com/omarsiddiqui',
   },
   {
     id: 3,
-    name: "Hassaan Zuberi",
-    role: "COO",
+    name: 'Sara Ahmed',
+    role: 'Operations Manager',
     image:
-      "https://framerusercontent.com/images/meD9qS8xpKRajRR77S85wY5Mv8A.jpg?scale-down-to=512",
-    instagram: "#",
-    linkedin: "#",
-    twitter: "#",
+      'https://framerusercontent.com/images/meD9qS8xpKRajRR77S85wY5Mv8A.jpg?scale-down-to=512',
+    instagram: 'https://instagram.com/sara',
+    linkedin: 'https://linkedin.com/in/sara-ahmed',
+    twitter: 'https://twitter.com/sara_ahmed',
   },
   {
     id: 4,
-    name: "Ayesha Noor",
-    role: "Head of Design",
+    name: 'Bilal Khan',
+    role: 'Lead Designer',
     image:
-      "https://framerusercontent.com/images/XFFLjET4kskD3uCeXXbsOEjE.png?scale-down-to=1024",
-    instagram: "#",
-    linkedin: "#",
-    twitter: "#",
+      'https://framerusercontent.com/images/cy4wavbyt81gvoWNZYNvS2mmo8.png?scale-down-to=1024',
+    instagram: 'https://instagram.com/bilal',
+    linkedin: 'https://linkedin.com/in/bilal-khan',
+    twitter: 'https://twitter.com/bilal_khan',
   },
   {
     id: 5,
-    name: "Faraz Ahmed",
-    role: "Lead AI Researcher",
+    name: 'Nida Hussain',
+    role: 'AI Specialist',
     image:
-      "https://framerusercontent.com/images/JR3P7kajBqC7kAHbwF66sBvACw.png?scale-down-to=1024",
-    instagram: "#",
-    linkedin: "#",
-    twitter: "#",
+      'https://framerusercontent.com/images/JR3P7kajBqC7kAHbwF66sBvACw.png?scale-down-to=1024',
+    instagram: 'https://instagram.com/nida',
+    linkedin: 'https://linkedin.com/in/nida-hussain',
+    twitter: 'https://twitter.com/nida_hussain',
   },
   {
     id: 6,
-    name: "Sara Khan",
-    role: "AI Product Manager",
+    name: 'Faisal Raza',
+    role: 'Product Manager',
     image:
-      "https://framerusercontent.com/images/XNaoO5zh0Xr50RaXTmjSPo.jpg?scale-down-to=512",
-    instagram: "#",
-    linkedin: "#",
-    twitter: "#",
+      'https://framerusercontent.com/images/XNaoO5zh0Xr50RaXTmjSPo.jpg?scale-down-to=512',
+    instagram: 'https://instagram.com/faisal',
+    linkedin: 'https://linkedin.com/in/faisal-raza',
+    twitter: 'https://twitter.com/faisal_raza',
   },
-];
+]
 
 export const OurTeam = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
     <section className="w-full bg-[#0B0D11] text-white py-20 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto text-center mb-16">
         <div className="flex items-center justify-center gap-2 text-sm uppercase text-muted-foreground mb-2 tracking-wide">
           <Biohazard className="w-4 h-4 text-muted-foreground text-gray-400" />
-          <span>OUR AMAZING TEAM</span>
+          <span>MEET OUR TEAM</span>
         </div>
 
         <h2 className="text-4xl font-bold">
-          Get to Know <span className="italic font-light">Us</span>
+          Introducing <span className="italic font-light">Our Experts</span>
         </h2>
         <p className="text-muted-foreground mt-3 max-w-xl mx-auto">
-          Everything you need to collaborate, create, and scale, all in one
-          place.
+          Passionate professionals dedicated to delivering excellence.
         </p>
       </div>
 
@@ -167,5 +165,5 @@ export const OurTeam = () => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}

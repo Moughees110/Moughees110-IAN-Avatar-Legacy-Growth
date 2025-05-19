@@ -1,52 +1,52 @@
-import { useState } from "react";
-import { BadgeDollarSign, Check, Flame } from "lucide-react";
-import { InteractiveHoverButton } from "@/components/magicui/interactive-hover-button";
+import { useState } from 'react'
+import { BadgeDollarSign, Check, Flame } from 'lucide-react'
+import { InteractiveHoverButton } from '@/components/magicui/interactive-hover-button'
 
 const Pricing = () => {
-  const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
+  const [billing, setBilling] = useState<'monthly' | 'yearly'>('monthly')
 
   const plans = [
     {
-      title: "Basic",
-      monthlyPrice: "19",
-      yearlyPrice: "190",
+      title: 'Starter',
+      monthlyPrice: '15',
+      yearlyPrice: '150',
       features: [
-        "Unlimited AI usage here",
-        "Premium support",
-        "Customer care on point",
-        "Collaboration tools",
+        'Basic voice commands',
+        'Up to 500 messages/month',
+        'Email support',
+        'Access to chatbot templates',
       ],
-      height: "h-[28rem]",
+      height: 'h-[28rem]',
     },
     {
-      title: "Pro",
-      monthlyPrice: "39",
-      yearlyPrice: "390",
+      title: 'Professional',
+      monthlyPrice: '45',
+      yearlyPrice: '450',
       features: [
-        "Integrations with 3rd-party",
-        "Advanced analytics",
-        "Team performance tracking",
-        "Top grade security",
-        "Customizable Solutions",
+        'Advanced voice recognition',
+        'Up to 5,000 messages/month',
+        'Priority customer support',
+        'Custom chatbot integrations',
+        'Analytics dashboard',
       ],
-      height: "h-[30rem]", // Swapped from 3rd card
+      height: 'h-[30rem]',
       popular: true,
     },
     {
-      title: "Enterprise",
-      monthlyPrice: "79",
-      yearlyPrice: "790",
+      title: 'Enterprise',
+      monthlyPrice: '99',
+      yearlyPrice: '990',
       features: [
-        "Custom reports & dashboards",
-        "Most performance usage",
-        "Dedicated Enterprise-grade security",
-        "Customizable Solutions",
-        "Seamless Integration",
-        "Dedicated account manager",
+        'Unlimited messages & commands',
+        'Dedicated account manager',
+        'Custom voice AI training',
+        'SLA & uptime guarantees',
+        'Multi-channel support',
+        'Enterprise-grade security',
       ],
-      height: "h-[32rem]", // Swapped from 2nd card
+      height: 'h-[32rem]',
     },
-  ];
+  ]
 
   return (
     <section
@@ -63,33 +63,33 @@ const Pricing = () => {
           <span>Pricing</span>
         </div>
         <h2 className="text-4xl font-semibold">
-          Flexible Plans for{" "}
-          <span className="italic font-light mx-2">Everyone</span>
+          Flexible Plans for{' '}
+          <span className="italic font-light mx-2">Your Voice AI Needs</span>
         </h2>
         <p className="text-gray-400 mt-2">
-          Simple pricing. No hidden fees. Cancel anytime.
+          Choose the perfect plan for your chatbot's growth and performance.
         </p>
 
         {/* Billing Toggle */}
         <div className="mt-6 inline-flex border border-gray-600 rounded-full p-1 bg-[#11131A]">
           <button
             className={`px-4 py-1 rounded-full transition ${
-              billing === "monthly"
-                ? "bg-black text-white"
-                : "text-white hover:bg-gray-800"
+              billing === 'monthly'
+                ? 'bg-black text-white'
+                : 'text-white hover:bg-gray-800'
             }`}
-            onClick={() => setBilling("monthly")}
+            onClick={() => setBilling('monthly')}
           >
             Monthly
           </button>
 
           <button
             className={`flex items-center gap-2 px-4 py-1 rounded-full transition ${
-              billing === "yearly"
-                ? "bg-black text-white"
-                : "text-white hover:bg-gray-800"
+              billing === 'yearly'
+                ? 'bg-black text-white'
+                : 'text-white hover:bg-gray-800'
             }`}
-            onClick={() => setBilling("yearly")}
+            onClick={() => setBilling('yearly')}
           >
             <span>Yearly</span>
             <span className="bg-black text-white text-[10px] font-semibold px-2 py-[2px] rounded-full">
@@ -119,9 +119,9 @@ const Pricing = () => {
 
               <h3 className="text-xl font-semibold mb-2">{plan.title}</h3>
               <div className="text-4xl font-bold mb-4">
-                ${billing === "monthly" ? plan.monthlyPrice : plan.yearlyPrice}
+                ${billing === 'monthly' ? plan.monthlyPrice : plan.yearlyPrice}
                 <span className="text-sm text-gray-400 font-medium ml-1">
-                  /{billing === "monthly" ? "mo" : "yr"}
+                  /{billing === 'monthly' ? 'mo' : 'yr'}
                 </span>
               </div>
               <div className="flex justify-center py-8">
@@ -146,7 +146,7 @@ const Pricing = () => {
         ))}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Pricing;
+export default Pricing
