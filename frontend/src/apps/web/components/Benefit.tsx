@@ -26,7 +26,7 @@ const cards = [
   {
     title: 'Customizable Workflows',
     description:
-      'Top-notch security with consistent Adapt Landio to fit your unique business processes effortlessly.',
+      'Top-notch security with consistent Adapt AI to fit your unique business processes effortlessly.',
     icons: [
       <ShieldCheck key="1" className="w-12 h-12" />,
       <CheckCircle key="2" className="w-12 h-12" />,
@@ -108,7 +108,7 @@ const Benefit = () => {
         </div>
         <h2 className="text-4xl font-semibold">
           Why Choose{' '}
-          <em className="italic font-medium text-neutral-400">Landio?</em>
+          <em className="italic font-medium text-neutral-400">AI?</em>
         </h2>
         <p className="text-gray-400 mt-3">
           Everything you need to collaborate, create in one place

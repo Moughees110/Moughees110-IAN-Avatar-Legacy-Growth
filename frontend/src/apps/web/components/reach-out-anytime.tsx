@@ -14,11 +14,11 @@ export default function ReachOutAnytime() {
 
         <h1 className="text-3xl md:text-5xl font-semibold leading-tight">
           Achieve More Than Ever <br />
-          Before with <span className="italic text-gray-300">Landio</span>
+          Before with <span className="italic text-gray-300">AI</span>
         </h1>
 
         <p className="mt-4 text-sm md:text-base text-gray-400">
-          unlock endless possibilities with landio
+          unlock endless possibilities with AI
         </p>
 
         <div className="mt-6">
@@ -36,7 +36,7 @@ export default function ReachOutAnytime() {
         </div>
 
         <p className="mt-6 text-sm text-white underline cursor-pointer">
-          landio@support.com
+          AI@support.com
         </p>
       </div>
 

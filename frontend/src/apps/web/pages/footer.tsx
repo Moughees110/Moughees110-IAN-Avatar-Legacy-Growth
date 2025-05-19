@@ -17,7 +17,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-3">
               <LandPlot size={20} className="text-white" />
-              <h2 className="text-white text-xl italic font-medium">Landio</h2>
+              <h2 className="text-white text-xl italic font-medium">AI</h2>
             </div>
 
             {/* Navigation Links */}
@@ -116,7 +116,7 @@ export default function Footer() {
       <div className="border-t border-[#1a1a1a] text-sm py-4 px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
           <p className="text-gray-300">
-            © {new Date().getFullYear()} Landio. All rights reserved.
+            © {new Date().getFullYear()} AI. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <span className="text-gray-300">

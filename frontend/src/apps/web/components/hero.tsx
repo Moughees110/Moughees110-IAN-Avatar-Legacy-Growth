@@ -66,7 +66,7 @@ function Hero() {
             data-aos-delay="200"
           >
             Unleash Your Full Potential with{' '}
-            <span className="font-light italic">Landio</span>
+            <span className="font-light italic">AI</span>
           </h1>
 
           <p

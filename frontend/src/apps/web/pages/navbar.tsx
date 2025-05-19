@@ -32,7 +32,7 @@ export default function Navbar() {
             href="#hero"
             className="text-xl italic font-medium hover:opacity-80 transition"
           >
-            Landio
+            AI
           </a>
         </div>
 

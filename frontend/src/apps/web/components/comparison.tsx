@@ -1,7 +1,7 @@
 import { Check, X, ListChecks, LandPlot, Layers } from 'lucide-react'
 
 const Comparison = () => {
-  const landioFeatures = [
+  const AIFeatures = [
     'Fast and secure deployment',
     'Built-in analytics and SEO',
     'Easy integrations with APIs',
@@ -29,10 +29,10 @@ const Comparison = () => {
           <span>Comparison</span>
         </div>
         <h2 className="text-4xl font-semibold mb-2">
-          Why <span className="italic font-light">Landio</span> Stands Out?
+          Why <span className="italic font-light">AI</span> Stands Out?
         </h2>
         <p className="text-gray-400 max-w-xl mx-auto">
-          See how Landio compares against other platforms and what makes us the
+          See how AI compares against other platforms and what makes us the
           right choice for your business.
         </p>
       </div>
@@ -41,7 +41,7 @@ const Comparison = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4 text-center relative z-10">
         <div className="flex justify-center items-center gap-2 text-2xl font-bold">
           <LandPlot size={24} className="text-gray-200" />
-          Landio
+          AI
         </div>
         <div className="flex justify-center items-center gap-2 text-2xl font-bold">
           <Layers size={24} className="text-gray-200" />
@@ -51,10 +51,10 @@ const Comparison = () => {
 
       {/* Comparison Containers */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
-        {/* Landio Container */}
+        {/* AI Container */}
         <div className="bg-gradient-to-b from-[#11131A] to-[#0B0D11] border-t border-gray-400 border-b border-gray-800 rounded-xl p-6">
           <ul className="space-y-5">
-            {landioFeatures.map((feature, index) => (
+            {AIFeatures.map((feature, index) => (
               <li key={index} className="flex flex-col">
                 <div className="flex items-start gap-2">
                   <Check className="text-white mt-1 shrink-0" size={18} />
