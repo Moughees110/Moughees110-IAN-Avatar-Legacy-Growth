@@ -9,7 +9,7 @@ const VoiceBotChat: React.FC = () => {
       from: "user" | "bot";
       audioUrl?: string;
       duration?: number;
-      loading?: boolean;
+      status?: "listening" | "thinking" | "done";
     }[]
   >([]);
 
@@ -61,19 +61,6 @@ const VoiceBotChat: React.FC = () => {
         } else {
           finalizeAudio(audio.duration);
         }
-      };
-
-      const finalizeAudio = (duration: number) => {
-        const userVoice = {
-          from: "user" as const,
-          audioUrl,
-          duration: parseFloat(duration.toFixed(1)),
-        };
-
-        setMessages((prev) => [...prev, userVoice]);
-        setMessages((prev) => [...prev, { from: "bot", loading: true }]);
-
-        sendVoiceToAPI(blob, duration);
       };
     };
 
@@ -159,6 +146,48 @@ const VoiceBotChat: React.FC = () => {
     draw();
   };
 
+  const finalizeAudio = (duration: number) => {
+    const userVoice = {
+      from: "user" as const,
+      audioUrl: URL.createObjectURL(
+        new Blob(audioChunksRef.current, { type: "audio/webm" })
+      ),
+      duration: parseFloat(duration.toFixed(1)),
+    };
+
+    setMessages((prev) => [...prev, userVoice]);
+
+    // Start listening phase
+    setMessages((prev) => [...prev, { from: "bot", status: "listening" }]);
+
+    // Show "Listening..." for 3 seconds
+    setTimeout(() => {
+      setMessages((prev) => [
+        ...prev.slice(0, -1),
+        { from: "bot", status: "thinking" },
+      ]);
+
+      // Simulate thinking time = user duration + 3s
+      const thinkingTimeMs = (duration + 3) * 1000;
+
+      setTimeout(() => {
+        const replyDuration = 2.5;
+
+        setMessages((prev) => [
+          ...prev.slice(0, -1),
+          {
+            from: "bot",
+            audioUrl: "/sample-reply.mp3",
+            duration: parseFloat(replyDuration.toFixed(1)),
+            status: "done",
+          },
+        ]);
+
+        new Audio("/sample-reply.mp3").play();
+      }, thinkingTimeMs);
+    }, 3000); // 3 seconds of listening
+  };
+
   const sendVoiceToAPI = async (blob: Blob, userDuration: number) => {
     try {
       const formData = new FormData();
@@ -175,6 +204,7 @@ const VoiceBotChat: React.FC = () => {
             from: "bot",
             audioUrl: "/sample-reply.mp3",
             duration: parseFloat(replyDuration.toFixed(1)),
+            status: "done",
           },
         ]);
 
@@ -187,7 +217,7 @@ const VoiceBotChat: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-full min-h-screen bg-gray-950 text-white">
+    <div className="flex flex-col h-full min-h-full bg-gray-950 text-white">
       <div className="p-3 border-b border-gray-800 flex justify-between items-center">
         <h1 className="text-base font-semibold">🎤 VoiceBot Chat</h1>
       </div>
@@ -203,18 +233,25 @@ const VoiceBotChat: React.FC = () => {
             }`}
           >
             <div className="flex items-center gap-2">
-              <audio controls src={msg.audioUrl} className="w-full" />
-              {msg.duration && (
-                <span className="text-xs text-gray-400 ml-2">
-                  {msg.duration.toFixed(1)}s
+              {msg.audioUrl && msg.duration !== undefined && (
+                <>
+                  <audio controls src={msg.audioUrl} className="w-full" />
+                  <span className="text-xs text-gray-400 ml-2">
+                    {msg.duration.toFixed(1)}s
+                  </span>
+                </>
+              )}
+              {msg.status === "listening" && (
+                <span className="text-xs text-gray-400 animate-pulse">
+                  👂 Listening...
+                </span>
+              )}
+              {msg.status === "thinking" && (
+                <span className="text-xs text-gray-400 animate-pulse">
+                  🤖 Thinking...
                 </span>
               )}
             </div>
-            {msg.loading && (
-              <span className="text-xs text-gray-400 mt-1 animate-pulse">
-                🤖 Thinking...
-              </span>
-            )}
           </div>
         ))}
       </div>
@@ -241,7 +278,7 @@ const VoiceBotChat: React.FC = () => {
           </button>
         </div>
         <p className="text-center text-xs text-gray-400 mt-1">
-          {isRecording ? `Listening... (${recordingTime}s)` : "Tap to record"}
+          {isRecording ? `Recording... (${recordingTime}s)` : "Tap to record"}
         </p>
       </div>
     </div>

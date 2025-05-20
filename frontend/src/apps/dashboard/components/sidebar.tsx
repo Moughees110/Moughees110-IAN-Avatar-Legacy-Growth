@@ -1,35 +1,56 @@
-import { useState } from 'react'
 import {
   Mic,
+  Settings,
   Home as HomeIcon,
   PhoneIcon,
+  Calendar,
   User,
   Spline,
   CalendarSync,
   Pause,
-  ChevronDown,
-  ChevronUp,
-} from 'lucide-react'
-import { Link, useLocation } from 'react-router-dom'
+} from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+// import User from '../pages/user';
 
 export default function Sidebar() {
   const location = useLocation()
   const [isIntegrationsOpen, setIsIntegrationsOpen] = useState(false)
 
   const navItems = [
-    { label: 'Dashboard', icon: <HomeIcon size={20} />, to: '/dashboard' },
+    { label: "Dashboard", icon: <HomeIcon size={20} />, to: "/dashboard" },
     {
-      label: 'Voice Chats',
+      label: "Voice Chats",
       icon: <Mic size={20} />,
-      to: '/dashboard/voicebotchat',
+      to: "/dashboard/voice-bot-chat",
     },
-    { label: 'User', icon: <User size={20} />, to: '/dashboard/user' },
     {
-      label: 'Live Call',
+      label: "Live Call",
       icon: <PhoneIcon size={20} />,
-      to: '/dashboard/livecall',
+      to: "/dashboard/live-call",
     },
-  ]
+    { label: "User", icon: <User size={20} />, to: "/dashboard/user" },
+
+    {
+      label: "Calendar",
+      icon: <Calendar size={20} />,
+      to: "/dashboard/calendar",
+    },
+    {
+      label: "Integrations",
+      icon: <Spline size={20} />,
+      to: "/dashboard/integrations",
+    },
+    {
+      label: "Google Calendar",
+      icon: <CalendarSync size={20} />,
+      to: "/dashboard/google-calendar",
+    },
+    {
+      label: "ElevenLabs",
+      icon: <Pause size={20} />,
+      to: "/dashboard/eleven-labs",
+    },
+  ];
 
   return (
     <aside className="w-64 bg-[#1a1d22] text-white h-screen p-4 flex flex-col">
