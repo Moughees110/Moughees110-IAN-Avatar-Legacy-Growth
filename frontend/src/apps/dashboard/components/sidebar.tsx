@@ -22,12 +22,13 @@ export default function Sidebar() {
       icon: <Mic size={20} />,
       to: "/dashboard/voice-bot-chat",
     },
-    { label: "User", icon: <User size={20} />, to: "/dashboard/user" },
     {
       label: "Live Call",
       icon: <PhoneIcon size={20} />,
       to: "/dashboard/live-call",
     },
+    { label: "User", icon: <User size={20} />, to: "/dashboard/user" },
+
     {
       label: "Calendar",
       icon: <Calendar size={20} />,
