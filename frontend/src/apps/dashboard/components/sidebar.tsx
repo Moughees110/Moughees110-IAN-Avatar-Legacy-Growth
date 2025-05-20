@@ -42,7 +42,7 @@ export default function Sidebar() {
 
   return (
     <aside className="w-64 bg-gray-900 text-white h-screen p-4 flex flex-col">
-      <div className="text-xl font-bold mb-6">VoiceBot</div>
+      <div className="text-xl font-bold mb-6">Vibes By Horton</div>
       <nav className="flex flex-col space-y-4">
         {navItems.map(({ label, icon, to }) => (
           <Link
