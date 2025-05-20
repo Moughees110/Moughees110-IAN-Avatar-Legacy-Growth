@@ -23,7 +23,7 @@ export default function Header() {
     <header className="bg-gray-900 text-white px-6 py-4 shadow-md flex items-center justify-between relative z-10">
       {/* Left: App title */}
       <div>
-        <h1 className="text-2xl font-semibold text-white">🎙️ VoiceBot</h1>
+        <h1 className="text-2xl font-semibold text-white">🎙️ Vibes By Horton</h1>
         <p className="text-sm text-gray-400">Real-time voice chat automation</p>
       </div>
 

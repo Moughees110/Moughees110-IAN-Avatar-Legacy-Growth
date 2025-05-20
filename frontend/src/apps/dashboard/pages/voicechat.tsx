@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Mic, Play } from "lucide-react";
+import { Mic } from "lucide-react";
 
 const VoiceBotChat: React.FC = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -48,23 +48,32 @@ const VoiceBotChat: React.FC = () => {
     mediaRecorder.onstop = async () => {
       const blob = new Blob(audioChunksRef.current, { type: "audio/webm" });
       const audioUrl = URL.createObjectURL(blob);
-
       const audio = new Audio(audioUrl);
+
       audio.onloadedmetadata = () => {
+        if (audio.duration === Infinity) {
+          audio.currentTime = Number.MAX_SAFE_INTEGER;
+          audio.ontimeupdate = () => {
+            audio.ontimeupdate = null;
+            audio.currentTime = 0;
+            finalizeAudio(audio.duration);
+          };
+        } else {
+          finalizeAudio(audio.duration);
+        }
+      };
+
+      const finalizeAudio = (duration: number) => {
         const userVoice = {
           from: "user" as const,
           audioUrl,
-          duration: audio.duration,
+          duration: parseFloat(duration.toFixed(1)),
         };
 
-        // Add user's voice message
         setMessages((prev) => [...prev, userVoice]);
-
-        // Add "thinking..." placeholder
         setMessages((prev) => [...prev, { from: "bot", loading: true }]);
 
-        // Send to backend
-        sendVoiceToAPI(blob);
+        sendVoiceToAPI(blob, duration);
       };
     };
 
@@ -77,7 +86,7 @@ const VoiceBotChat: React.FC = () => {
     }, 1000);
 
     drawWaveform(analyser);
-    detectSilence(analyser, 1500); // skip silence detection for first 1.5s
+    detectSilence(analyser, 1500);
   };
 
   const stopRecording = () => {
@@ -103,11 +112,9 @@ const VoiceBotChat: React.FC = () => {
       if (!isRecording) return;
       analyser.getByteTimeDomainData(data);
       const maxVolume = Math.max(...data.map((v) => Math.abs(v - 128)));
-
-      const isSilent = maxVolume < threshold;
       const recordingTime = Date.now() - start;
 
-      if (isSilent && recordingTime > skipMs) {
+      if (maxVolume < threshold && recordingTime > skipMs) {
         silenceTimeoutRef.current = setTimeout(stopRecording, timeout);
       } else {
         if (silenceTimeoutRef.current) {
@@ -152,67 +159,66 @@ const VoiceBotChat: React.FC = () => {
     draw();
   };
 
-  const sendVoiceToAPI = async (blob: Blob) => {
+  const sendVoiceToAPI = async (blob: Blob, userDuration: number) => {
     try {
       const formData = new FormData();
       formData.append("voice", blob, "voice.webm");
 
-      // Simulate network delay and bot reply
-      const res = await new Promise<{ audioUrl: string }>((resolve) =>
-        setTimeout(() => resolve({ audioUrl: "/sample-reply.mp3" }), 2000)
-      );
+      const delay = (userDuration + 3) * 1000;
 
-      // Remove loading placeholder and add real response
-      setMessages((prev) => [
-        ...prev.slice(0, -1),
-        { from: "bot", audioUrl: res.audioUrl, duration: 2.3 },
-      ]);
+      setTimeout(() => {
+        const replyDuration = 2.5;
 
-      new Audio(res.audioUrl).play();
+        setMessages((prev) => [
+          ...prev.slice(0, -1),
+          {
+            from: "bot",
+            audioUrl: "/sample-reply.mp3",
+            duration: parseFloat(replyDuration.toFixed(1)),
+          },
+        ]);
+
+        new Audio("/sample-reply.mp3").play();
+      }, delay);
     } catch (err) {
       console.error("API error", err);
-      setMessages((prev) => [...prev.slice(0, -1)]); // remove loading
+      setMessages((prev) => [...prev.slice(0, -1)]);
     }
   };
 
   return (
     <div className="flex flex-col h-full min-h-screen bg-gray-950 text-white">
-      {/* Header */}
       <div className="p-3 border-b border-gray-800 flex justify-between items-center">
         <h1 className="text-base font-semibold">🎤 VoiceBot Chat</h1>
       </div>
 
-      {/* Messages */}
       <div className="flex-1 overflow-y-auto p-3 space-y-3">
         {messages.map((msg, i) => (
           <div
             key={i}
-            className={`max-w-[70%] p-2 rounded-xl flex items-center gap-2 text-sm ${
+            className={`max-w-[70%] p-2 rounded-xl text-sm flex flex-col ${
               msg.from === "user"
                 ? "bg-blue-600 ml-auto"
                 : "bg-gray-800 mr-auto"
             }`}
           >
-            {msg.loading ? (
-              <span className="text-xs text-gray-400 animate-pulse">
+            <div className="flex items-center gap-2">
+              <audio controls src={msg.audioUrl} className="w-full" />
+              {msg.duration && (
+                <span className="text-xs text-gray-400 ml-2">
+                  {msg.duration.toFixed(1)}s
+                </span>
+              )}
+            </div>
+            {msg.loading && (
+              <span className="text-xs text-gray-400 mt-1 animate-pulse">
                 🤖 Thinking...
               </span>
-            ) : (
-              <>
-                <Play size={16} />
-                <audio controls src={msg.audioUrl} className="w-full" />
-                {msg.duration && (
-                  <span className="text-xs text-gray-400 whitespace-nowrap ml-2">
-                    {msg.duration.toFixed(1)}s
-                  </span>
-                )}
-              </>
             )}
           </div>
         ))}
       </div>
 
-      {/* Recorder */}
       <div className="p-3 border-t border-gray-800">
         {isRecording && (
           <canvas
