@@ -20,10 +20,12 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="bg-gray-900 text-white px-6 py-4 shadow-md flex items-center justify-between relative z-10">
+    <header className="bg-[#1a1d22] text-white px-6 py-4 shadow-md flex items-center justify-between relative z-10">
       {/* Left: App title */}
       <div>
-        <h1 className="text-2xl font-semibold text-white">🎙️ Vibes By Horton</h1>
+        <h1 className="text-2xl font-semibold text-white">
+          🎙️ Vibes By Horton
+        </h1>
         <p className="text-sm text-gray-400">Real-time voice chat automation</p>
       </div>
 
@@ -50,8 +52,8 @@ export default function Header() {
           <div className="absolute right-0 mt-2 w-48 bg-gray-800 border border-gray-700 rounded-lg shadow-lg animate-fade-in">
             <button
               onClick={() => {
-                alert("Logging out...");
-                setMenuOpen(false);
+                alert('Logging out...')
+                setMenuOpen(false)
               }}
               className="w-full text-left px-4 py-3 text-sm hover:bg-gray-700 flex items-center gap-2 text-white"
             >
@@ -62,5 +64,5 @@ export default function Header() {
         )}
       </div>
     </header>
-  );
+  )
 }

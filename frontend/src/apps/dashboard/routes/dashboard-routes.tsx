@@ -4,8 +4,9 @@ import User from "../pages/user";
 import VoiceBotChat from "../pages/voicechat";
 import Dashhome from "../pages/dashhome";
 import LiveCall from "../pages/livecall";
-import Calendar from '../pages/calendar';
+
 import Integration from '../pages/integration';
+import GoogleCalendar from '../pages/google-calendar';
 
 const DashboardRoutes = () => {
   return (
@@ -15,8 +16,9 @@ const DashboardRoutes = () => {
         <Route path="voice-bot-chat" element={<VoiceBotChat />} />
         <Route path="user" element={<User />} />
         <Route path="live-call" element={<LiveCall />} />
-        <Route path="calendar" element={<Calendar />} />
+
         <Route path="integrations" element={<Integration />} />
+        <Route path="google-calendar" element={<GoogleCalendar />} />
         <Route path="*" element={<div>Page Not Found</div>} />
       </Route>
     </Routes>
