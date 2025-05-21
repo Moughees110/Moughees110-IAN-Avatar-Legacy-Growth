@@ -21,7 +21,14 @@ const signupUser = async ({ firstName, lastName, email, password }) => {
 // Authenticate an existing user
 const loginUser = async ({ email, password }) => {
   const userCredential = await signInWithEmailAndPassword(auth, email, password);
-  return userCredential.user;
+  const user = userCredential.user;
+
+  // ✅ Email verification check
+  if (!user.emailVerified) {
+    throw new Error("Please verify your email before logging in.");
+  }
+
+  return user;
 };
 
 // Send password reset email
