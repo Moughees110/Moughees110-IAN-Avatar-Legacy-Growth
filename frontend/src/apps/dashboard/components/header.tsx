@@ -1,3 +1,4 @@
+import { Card } from '@/components/ui/card'
 import {
   LogOut,
   ChevronDown,
@@ -11,61 +12,112 @@ import {
   Spline,
   CalendarSync,
   Pause,
-} from "lucide-react";
-import { useState, useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+  CreditCard,
+  CircleHelp,
+  Handshake,
+  Settings,
+  Logs,
+  Speaker,
+  History,
+} from 'lucide-react'
+import { useState, useRef, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-  const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
+  const location = useLocation()
 
   // Close dropdown on outside click
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setMenuOpen(false);
+        setMenuOpen(false)
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
 
   const navItems = [
-    { label: "Dashboard", icon: <Home size={20} />, to: "/dashboard" },
+    { label: 'Dashboard', icon: <Home size={20} />, to: '/dashboard' },
     {
-      label: "Voice Chats",
-      icon: <Mic size={20} />,
-      to: "/dashboard/voice-bot-chat",
-    },
-    {
-      label: "Live Call",
-      icon: <PhoneIcon size={20} />,
-      to: "/dashboard/live-call",
-    },
-    { label: "User", icon: <User size={20} />, to: "/dashboard/user" },
-    {
-      label: "Calendar",
+      label: 'Calendar',
       icon: <Calendar size={20} />,
-      to: "/dashboard/calendar",
+      to: '/dashboard/calendar',
     },
     {
-      label: "Integrations",
+      label: 'Live Call',
+      icon: <PhoneIcon size={20} />,
+      to: '/dashboard/live-call',
+    },
+    {
+      label: 'Voice Chats',
+      icon: <Mic size={20} />,
+      to: '/dashboard/voice-bot-chat',
+    },
+    {
+      label: 'Call Logs',
+      icon: <Logs size={20} />,
+      to: '/dashboard/call-logs',
+    },
+    {
+      label: 'Text to Speech',
+      icon: <Speaker size={20} />,
+      to: '/dashboard/text-to-speech',
+    },
+    {
+      label: 'Voices',
+      icon: <Mic size={20} />,
+      to: '/dashboard/voices',
+    },
+    {
+      label: 'Calendar',
+      icon: <Calendar size={20} />,
+      to: '/dashboard/calendar',
+    },
+    {
+      label: 'Integrations',
       icon: <Spline size={20} />,
-      to: "/dashboard/integrations",
+      to: '/dashboard/integrations',
     },
     {
-      label: "Google Calendar",
+      label: 'Google Calendar',
       icon: <CalendarSync size={20} />,
-      to: "/dashboard/google-calendar",
+      to: '/dashboard/integration/google-calendar',
     },
     {
-      label: "ElevenLabs",
+      label: 'ElevenLabs',
       icon: <Pause size={20} />,
-      to: "/dashboard/eleven-labs",
+      to: '/dashboard/integration/eleven-labs',
     },
-  ];
+    {
+      label: 'Settings',
+      icon: <Settings size={20} />,
+      to: '/dashboard/settings',
+    },
+    {
+      label: 'Profile',
+      icon: <User size={20} />,
+      to: '/dashboard/settings/profile',
+    },
+    {
+      label: 'Users',
+      icon: <User size={20} />,
+      to: '/dashboard/settings/users',
+    },
+    {
+      label: 'History',
+      icon: <History size={20} />,
+      to: '/dashboard/settings/history',
+    },
+    {
+      label: 'Billings',
+      icon: <CreditCard size={20} />,
+      to: '/dashboard/settings/billings',
+    },
+  ]
 
   return (
     <>
@@ -106,6 +158,22 @@ export default function Header() {
           {/* Dropdown */}
           {menuOpen && (
             <div className="absolute right-0 mt-2 w-48 bg-gray-800 border border-gray-700 rounded-lg shadow-lg animate-fade-in">
+              <button className="w-full text-left px-4 py-3 text-sm hover:bg-gray-700 flex items-center gap-2 text-white">
+                <User size={16} />
+                Profile
+              </button>
+              <button className="w-full text-left px-4 py-3 text-sm hover:bg-gray-700 flex items-center gap-2 text-white">
+                <CreditCard size={16} />
+                Billing
+              </button>
+              <button className="w-full text-left px-4 py-3 text-sm hover:bg-gray-700 flex items-center gap-2 text-white">
+                <Handshake size={16} />
+                Support
+              </button>
+              <button className="w-full text-left px-4 py-3 text-sm hover:bg-gray-700 flex items-center gap-2 text-white">
+                <CircleHelp size={16} />
+                Help
+              </button>
               <button
                 onClick={() => {
                   alert('Logging out...')

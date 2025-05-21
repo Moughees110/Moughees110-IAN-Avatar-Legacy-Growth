@@ -1,6 +1,6 @@
 // import React from 'react'
 
-function Integration() {
+function TextToSpeech() {
   return (
     <div>
 
@@ -8,4 +8,4 @@ function Integration() {
   )
 }
 
-export default Integration
+export default TextToSpeech
