@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Mic } from "lucide-react";
+import { Mic, UserCircle, Bot } from "lucide-react";
 
 const VoiceBotChat: React.FC = () => {
   const [isRecording, setIsRecording] = useState(false);
@@ -222,35 +222,56 @@ const VoiceBotChat: React.FC = () => {
         <h1 className="text-base font-semibold">🎤 VoiceBot Chat</h1>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-3 space-y-3">
+      <div className="flex-1 overflow-y-auto p-3 space-y-4">
         {messages.map((msg, i) => (
           <div
             key={i}
-            className={`max-w-[70%] p-2 rounded-xl text-sm flex flex-col ${
-              msg.from === "user"
-                ? "bg-blue-600 ml-auto"
-                : "bg-gray-800 mr-auto"
+            className={`flex items-start max-w-[75%] space-x-3 ${
+              msg.from === "user" ? "ml-auto flex-row-reverse" : "mr-auto"
             }`}
           >
-            <div className="flex items-center gap-2">
-              {msg.audioUrl && msg.duration !== undefined && (
-                <>
-                  <audio controls src={msg.audioUrl} className="w-full" />
-                  <span className="text-xs text-gray-400 ml-2">
-                    {msg.duration.toFixed(1)}s
+            {/* Profile Icon */}
+            <div className="shrink-0">
+              {msg.from === "user" ? (
+                <UserCircle className="w-7 h-7 text-zinc-800 dark:text-zinc-200" />
+              ) : (
+                <Bot className="w-7 h-7 text-indigo-600 dark:text-indigo-300" />
+              )}
+            </div>
+
+            {/* Message Bubble */}
+            <div
+              className={`p-3 rounded-2xl text-sm flex flex-col shadow-md ${
+                msg.from === "user"
+                  ? "bg-gradient-to-tr from-blue-500 to-blue-600 text-white"
+                  : "bg-gradient-to-tr from-zinc-200 to-zinc-100 text-zinc-800 dark:from-zinc-700 dark:to-zinc-800 dark:text-zinc-100"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                {msg.audioUrl && msg.duration !== undefined && (
+                  <>
+                    <audio
+                      controls
+                      src={msg.audioUrl}
+                      className="w-48 h-8 rounded-md"
+                    />
+                    <span className="text-xs text-zinc-600 dark:text-zinc-400">
+                      {msg.duration.toFixed(1)}s
+                    </span>
+                  </>
+                )}
+
+                {msg.status === "listening" && (
+                  <span className="text-xs text-zinc-500 animate-pulse">
+                    👂 Listening...
                   </span>
-                </>
-              )}
-              {msg.status === "listening" && (
-                <span className="text-xs text-gray-400 animate-pulse">
-                  👂 Listening...
-                </span>
-              )}
-              {msg.status === "thinking" && (
-                <span className="text-xs text-gray-400 animate-pulse">
-                  🤖 Thinking...
-                </span>
-              )}
+                )}
+                {msg.status === "thinking" && (
+                  <span className="text-xs text-zinc-500 animate-pulse">
+                    🤖 Thinking...
+                  </span>
+                )}
+              </div>
             </div>
           </div>
         ))}

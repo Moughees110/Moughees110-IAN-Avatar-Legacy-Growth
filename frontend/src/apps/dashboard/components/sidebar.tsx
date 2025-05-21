@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from "react";
 import {
   Mic,
   Home as HomeIcon,
@@ -9,27 +9,27 @@ import {
   Pause,
   ChevronDown,
   ChevronUp,
-} from 'lucide-react'
-import { Link, useLocation } from 'react-router-dom'
+} from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Sidebar() {
-  const location = useLocation()
-  const [isIntegrationsOpen, setIsIntegrationsOpen] = useState(false)
+  const location = useLocation();
+  const [isIntegrationsOpen, setIsIntegrationsOpen] = useState(false);
 
   const navItems = [
-    { label: 'Dashboard', icon: <HomeIcon size={20} />, to: '/dashboard' },
+    { label: "Dashboard", icon: <HomeIcon size={20} />, to: "/dashboard" },
     {
-      label: 'Voice Chats',
+      label: "Voice Chats",
       icon: <Mic size={20} />,
-      to: '/dashboard/voicebotchat',
+      to: "/dashboard/voice-bot-chat",
     },
-    { label: 'User', icon: <User size={20} />, to: '/dashboard/user' },
+    { label: "User", icon: <User size={20} />, to: "/dashboard/user" },
     {
-      label: 'Live Call',
+      label: "Live Call",
       icon: <PhoneIcon size={20} />,
-      to: '/dashboard/livecall',
+      to: "/dashboard/live-call",
     },
-  ]
+  ];
 
   return (
     <aside className="w-64 bg-[#1a1d22] text-white h-screen p-4 flex flex-col">
@@ -40,7 +40,7 @@ export default function Sidebar() {
             key={label}
             to={to}
             className={`flex items-center space-x-2 hover:text-blue-400 ${
-              location.pathname === to ? 'text-blue-400 font-semibold' : ''
+              location.pathname === to ? "text-blue-400 font-semibold" : ""
             }`}
           >
             {icon}
@@ -67,9 +67,9 @@ export default function Sidebar() {
               <Link
                 to="/dashboard/google-calendar"
                 className={`flex items-center space-x-2 hover:text-blue-400 ${
-                  location.pathname === '/dashboard/google-calendar'
-                    ? 'text-blue-400 font-semibold'
-                    : ''
+                  location.pathname === "/dashboard/google-calendar"
+                    ? "text-blue-400 font-semibold"
+                    : ""
                 }`}
               >
                 <CalendarSync size={18} />
@@ -78,9 +78,9 @@ export default function Sidebar() {
               <Link
                 to="/dashboard/eleven-labs"
                 className={`flex items-center space-x-2 hover:text-blue-400 ${
-                  location.pathname === '/dashboard/eleven-labs'
-                    ? 'text-blue-400 font-semibold'
-                    : ''
+                  location.pathname === "/dashboard/eleven-labs"
+                    ? "text-blue-400 font-semibold"
+                    : ""
                 }`}
               >
                 <Pause size={18} />
@@ -91,5 +91,5 @@ export default function Sidebar() {
         </div>
       </nav>
     </aside>
-  )
+  );
 }
