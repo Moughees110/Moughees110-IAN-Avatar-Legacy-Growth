@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import { useForm } from "react-hook-form";
@@ -47,13 +45,14 @@ const signupUser = async (data: SignUpInputs) => {
   });
 
   const result = await response.json();
-  if (!response.ok) throw new Error(result.message || "Signup failed");
+  if (!response.ok)
+    throw new Error(result.error || result.message || "Signup failed");
   return result;
 };
 
 export default function SignUp() {
   const navigate = useNavigate();
-  const [formError, setFormError] = useState("");
+  const [statusMessage, setStatusMessage] = useState("");
 
   const form = useForm<SignUpInputs>({
     resolver: zodResolver(SignUpSchema),
@@ -69,19 +68,21 @@ export default function SignUp() {
   const mutation = useMutation({
     mutationFn: signupUser,
     onSuccess: (data) => {
-      const token = data?.loggedInUserVM?.token;
-      if (token) {
-        localStorage.setItem("auth_token", token);
-        navigate("/dashboard/home");
-      }
+      const message = data.message || "Signup successful!";
+      setStatusMessage(message);
+
+      // Redirect to login after short delay
+      setTimeout(() => {
+        navigate("/auth/login");
+      }, 2000);
     },
     onError: (error: any) => {
-      setFormError(error.message);
+      setStatusMessage(error.message || "Signup failed. Please try again.");
     },
   });
 
   const onSubmit = (data: SignUpInputs) => {
-    setFormError("");
+    setStatusMessage("");
     mutation.mutate(data);
   };
 
@@ -145,8 +146,8 @@ export default function SignUp() {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
                         type="email"
+                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
                         placeholder="you@example.com"
                         {...field}
                       />
@@ -166,8 +167,8 @@ export default function SignUp() {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
                         type="password"
+                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
                         placeholder="••••••••"
                         {...field}
                       />
@@ -187,8 +188,8 @@ export default function SignUp() {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
                         type="password"
+                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
                         placeholder="••••••••"
                         {...field}
                       />
@@ -198,8 +199,16 @@ export default function SignUp() {
                 )}
               />
 
-              {formError && (
-                <p className="text-sm text-red-500 mt-1">{formError}</p>
+              {statusMessage && (
+                <p
+                  className={`text-sm mt-1 ${
+                    statusMessage.toLowerCase().includes("success")
+                      ? "text-green-500"
+                      : "text-red-500"
+                  }`}
+                >
+                  {statusMessage}
+                </p>
               )}
 
               <Button

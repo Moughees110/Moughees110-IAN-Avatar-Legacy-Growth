@@ -243,8 +243,8 @@ const VoiceBotChat: React.FC = () => {
             <div
               className={`p-3 rounded-2xl text-sm flex flex-col shadow-md ${
                 msg.from === "user"
-                  ? "bg-gradient-to-tr from-blue-500 to-blue-600 text-white"
-                  : "bg-gradient-to-tr from-zinc-200 to-zinc-100 text-zinc-800 dark:from-zinc-700 dark:to-zinc-800 dark:text-zinc-100"
+                  ? "bg-gradient-to-tr from-gray-800 to-gray-100 text-white"
+                  : "bg-gradient-to-tr from-zinc-500 to-zinc-100 text-zinc-800 dark:from-zinc-700 dark:to-zinc-800 dark:text-zinc-100"
               }`}
             >
               <div className="flex items-center gap-3">

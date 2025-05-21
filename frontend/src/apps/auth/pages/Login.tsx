@@ -9,7 +9,6 @@ import { useNavigate, Link } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Form,
@@ -26,14 +25,19 @@ const FormSchema = z.object({
   password: z.string().min(6, "Password must be at least 6 characters"),
 });
 
+// API Function
 const loginUser = async (data: z.infer<typeof FormSchema>) => {
   const res = await fetch("http://localhost:5000/api/auth/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
+
   const result = await res.json();
+  console.log("🔐 Login API Response:", result);
+
   if (!res.ok) throw new Error(result.message || "Login failed");
+
   return result;
 };
 
@@ -52,14 +56,17 @@ export default function Login() {
   const mutation = useMutation({
     mutationFn: loginUser,
     onSuccess: (data) => {
-      const token = data?.loggedInUserVM?.token;
+      const token = data?.user?.stsTokenManager?.accessToken;
       if (token) {
         localStorage.setItem("auth_token", token);
-        navigate("/dashboard/home");
+        navigate("/dashboard");
+      } else {
+        setFormError("Access token not found in response.");
       }
     },
     onError: (error: any) => {
-      setFormError(error.message);
+      console.error("❌ Login error:", error);
+      setFormError(error.message || "Login failed");
     },
   });
 
@@ -88,9 +95,9 @@ export default function Login() {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
                         type="email"
                         placeholder="you@example.com"
+                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
                         {...field}
                       />
                     </FormControl>
@@ -109,9 +116,9 @@ export default function Login() {
                     </FormLabel>
                     <FormControl>
                       <Input
-                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
                         type="password"
                         placeholder="••••••••"
+                        className="bg-[#202028] text-white border border-[#3a3a3a] focus:ring-purple-500 focus:border-purple-500"
                         {...field}
                       />
                     </FormControl>
@@ -135,9 +142,10 @@ export default function Login() {
 
               <Button
                 type="submit"
+                disabled={mutation.isPending}
                 className="w-full bg-purple-600 hover:bg-purple-700 text-white"
               >
-                Sign In
+                {mutation.isPending ? "Signing In..." : "Sign In"}
               </Button>
             </form>
           </Form>
