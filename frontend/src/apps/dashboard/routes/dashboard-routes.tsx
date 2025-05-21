@@ -7,6 +7,7 @@ import LiveCall from "../pages/livecall";
 
 import Integration from '../pages/integration';
 import GoogleCalendar from '../pages/google-calendar';
+import ElevenLabs from '../pages/eleven-labs';
 
 const DashboardRoutes = () => {
   return (
@@ -19,6 +20,7 @@ const DashboardRoutes = () => {
 
         <Route path="integrations" element={<Integration />} />
         <Route path="google-calendar" element={<GoogleCalendar />} />
+        <Route path="eleven-labs" element={<ElevenLabs />} />
         <Route path="*" element={<div>Page Not Found</div>} />
       </Route>
     </Routes>

@@ -69,7 +69,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-gray-900 text-white px-6 py-4 shadow-md flex items-center justify-between relative z-10">
+      <header className="bg-[#1a1d22] text-white px-6 py-4 shadow-md flex items-center justify-between relative z-10">
         {/* Left: Logo + Mobile Toggle */}
         <div className="flex items-center space-x-4">
           <button className="md:hidden" onClick={() => setMobileMenuOpen(true)}>
@@ -108,8 +108,8 @@ export default function Header() {
             <div className="absolute right-0 mt-2 w-48 bg-gray-800 border border-gray-700 rounded-lg shadow-lg animate-fade-in">
               <button
                 onClick={() => {
-                  alert("Logging out...");
-                  setMenuOpen(false);
+                  alert('Logging out...')
+                  setMenuOpen(false)
                 }}
                 className="w-full text-left px-4 py-3 text-sm hover:bg-gray-700 flex items-center gap-2 text-white"
               >
@@ -146,8 +146,8 @@ export default function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`flex items-center space-x-2 hover:text-blue-400 ${
                     location.pathname === to
-                      ? "text-blue-400 font-semibold"
-                      : ""
+                      ? 'text-blue-400 font-semibold'
+                      : ''
                   }`}
                 >
                   {icon}
@@ -159,5 +159,5 @@ export default function Header() {
         </>
       )}
     </>
-  );
+  )
 }
