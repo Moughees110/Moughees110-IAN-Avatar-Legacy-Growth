@@ -224,7 +224,7 @@ function CallLogsComponent() {
                         )}
                       </button>
                       <audio
-                        ref={(el) => (audioRefs.current[log.id] = el)}
+                        // ref={(el) => (audioRefs.current[log.id] = el)}
                         src={log.fileUrl}
                         onEnded={() => setPlayingId(null)}
                       />
