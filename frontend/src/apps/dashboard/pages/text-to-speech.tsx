@@ -1,6 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
 import { Play } from 'lucide-react'
 
+type Voice = SpeechSynthesisVoice
+
+type Person = {
+  id: number
+  name: string
+  gender: string
+  accent: string
+  voice: Voice
+}
+
 const fakeNames = [
   'Oliver Smith',
   'Amelia Jones',
@@ -20,12 +30,12 @@ const fakeNames = [
 ]
 
 const TextToSpeech = () => {
-  const [text, setText] = useState('')
-  const [availableVoices, setAvailableVoices] = useState([])
-  const [sampleData, setSampleData] = useState([])
-  const voicesLoaded = useRef(false)
+  const [text, setText] = useState<string>('')
+  const [availableVoices, setAvailableVoices] = useState<Voice[]>([])
+  const [sampleData, setSampleData] = useState<Person[]>([])
+  const voicesLoaded = useRef<boolean>(false)
 
-  // Load all available voices (not just UK)
+  // Load voices
   useEffect(() => {
     const loadVoices = () => {
       const voices = window.speechSynthesis.getVoices()
@@ -33,7 +43,6 @@ const TextToSpeech = () => {
         voicesLoaded.current = true
         setAvailableVoices(voices)
 
-        // Map fakeNames to real available voices (cycle through)
         const mapped = fakeNames.map((name, index) => {
           const assignedVoice = voices[index % voices.length]
           return {
@@ -49,14 +58,13 @@ const TextToSpeech = () => {
       }
     }
 
-    // Ensure voices are loaded (some browsers delay them)
     if (typeof window !== 'undefined') {
       window.speechSynthesis.onvoiceschanged = loadVoices
       loadVoices()
     }
   }, [])
 
-  const speak = (voice) => {
+  const speak = (voice: Voice) => {
     if (!voice || !voicesLoaded.current) {
       alert('Voice not available yet. Please wait a moment or reload.')
       return
