@@ -1,4 +1,4 @@
-import { Card } from '@/components/ui/card'
+// import { Card } from '@/components/ui/card'
 import {
   LogOut,
   ChevronDown,
@@ -19,105 +19,105 @@ import {
   Logs,
   Speaker,
   History,
-} from 'lucide-react'
-import { useState, useRef, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+} from "lucide-react";
+import { useState, useRef, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const menuRef = useRef<HTMLDivElement>(null)
-  const location = useLocation()
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
 
   // Close dropdown on outside click
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setMenuOpen(false)
+        setMenuOpen(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const navItems = [
-    { label: 'Dashboard', icon: <Home size={20} />, to: '/dashboard' },
+    { label: "Dashboard", icon: <Home size={20} />, to: "/dashboard" },
     {
-      label: 'Calendar',
+      label: "Calendar",
       icon: <Calendar size={20} />,
-      to: '/dashboard/calendar',
+      to: "/dashboard/calendar",
     },
     {
-      label: 'Live Call',
+      label: "Live Call",
       icon: <PhoneIcon size={20} />,
-      to: '/dashboard/live-call',
+      to: "/dashboard/live-call",
     },
     {
-      label: 'Voice Chats',
+      label: "Voice Chats",
       icon: <Mic size={20} />,
-      to: '/dashboard/voice-bot-chat',
+      to: "/dashboard/voice-bot-chat",
     },
     {
-      label: 'Call Logs',
+      label: "Call Logs",
       icon: <Logs size={20} />,
-      to: '/dashboard/call-logs',
+      to: "/dashboard/call-logs",
     },
     {
-      label: 'Text to Speech',
+      label: "Text to Speech",
       icon: <Speaker size={20} />,
-      to: '/dashboard/text-to-speech',
+      to: "/dashboard/text-to-speech",
     },
     {
-      label: 'Voices',
+      label: "Voices",
       icon: <Mic size={20} />,
-      to: '/dashboard/voices',
+      to: "/dashboard/voices",
     },
     {
-      label: 'Calendar',
+      label: "Calendar",
       icon: <Calendar size={20} />,
-      to: '/dashboard/calendar',
+      to: "/dashboard/calendar",
     },
     {
-      label: 'Integrations',
+      label: "Integrations",
       icon: <Spline size={20} />,
-      to: '/dashboard/integrations',
+      to: "/dashboard/integrations",
     },
     {
-      label: 'Google Calendar',
+      label: "Google Calendar",
       icon: <CalendarSync size={20} />,
-      to: '/dashboard/integration/google-calendar',
+      to: "/dashboard/integration/google-calendar",
     },
     {
-      label: 'ElevenLabs',
+      label: "ElevenLabs",
       icon: <Pause size={20} />,
-      to: '/dashboard/integration/eleven-labs',
+      to: "/dashboard/integration/eleven-labs",
     },
     {
-      label: 'Settings',
+      label: "Settings",
       icon: <Settings size={20} />,
-      to: '/dashboard/settings',
+      to: "/dashboard/settings",
     },
     {
-      label: 'Profile',
+      label: "Profile",
       icon: <User size={20} />,
-      to: '/dashboard/settings/profile',
+      to: "/dashboard/settings/profile",
     },
     {
-      label: 'Users',
+      label: "Users",
       icon: <User size={20} />,
-      to: '/dashboard/settings/users',
+      to: "/dashboard/settings/users",
     },
     {
-      label: 'History',
+      label: "History",
       icon: <History size={20} />,
-      to: '/dashboard/settings/history',
+      to: "/dashboard/settings/history",
     },
     {
-      label: 'Billings',
+      label: "Billings",
       icon: <CreditCard size={20} />,
-      to: '/dashboard/settings/billings',
+      to: "/dashboard/settings/billings",
     },
-  ]
+  ];
 
   return (
     <>
@@ -176,8 +176,8 @@ export default function Header() {
               </button>
               <button
                 onClick={() => {
-                  alert('Logging out...')
-                  setMenuOpen(false)
+                  alert("Logging out...");
+                  setMenuOpen(false);
                 }}
                 className="w-full text-left px-4 py-3 text-sm hover:bg-gray-700 flex items-center gap-2 text-white"
               >
@@ -214,8 +214,8 @@ export default function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`flex items-center space-x-2 hover:text-blue-400 ${
                     location.pathname === to
-                      ? 'text-blue-400 font-semibold'
-                      : ''
+                      ? "text-blue-400 font-semibold"
+                      : ""
                   }`}
                 >
                   {icon}
@@ -227,5 +227,5 @@ export default function Header() {
         </>
       )}
     </>
-  )
+  );
 }

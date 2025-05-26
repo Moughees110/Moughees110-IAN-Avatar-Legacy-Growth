@@ -50,8 +50,8 @@ const queryClient = new QueryClient();
 function CallLogsComponent() {
   const {
     data = [],
-    isLoading,
-    isError,
+    // isLoading,
+    // isError,
   } = useQuery<CallLog[]>({
     queryKey: ["callLogs"],
     queryFn: fetchCallLogs,
