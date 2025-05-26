@@ -17,6 +17,7 @@ import {
   SelectContent,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
 
 type CallLog = {
   id: string;
@@ -112,8 +113,15 @@ function CallLogsComponent() {
         <div className="mb-6">
           <h2 className="text-xl font-semibold mb-1">Call Logs</h2>
           <p className="text-sm text-gray-400">
-            Browse your recent voice activities. Call logs are retained for 30
-            days and automatically deleted afterward.
+            Browse your recent voice activities. Call logs are retained for{" "}
+            <Link
+              to="/dashboard/settings/history"
+              className="text-blue-400 hover:underline font-medium inline-flex items-center space-x-1"
+            >
+              <span>30 days</span>
+              <span>→</span>
+            </Link>{" "}
+            and automatically deleted afterward.
           </p>
         </div>
 
